@@ -14,7 +14,7 @@ export default function Hero() {
               Sugar Land · Houston, TX
             </div>
 
-            <h1 className="mt-6 font-display text-[clamp(2.25rem,5.5vw,4.75rem)] leading-[0.95] tracking-tight text-balance">
+            <h1 className="mt-6 font-display text-[2.6rem] md:text-[clamp(2.25rem,5.5vw,4.75rem)] leading-[0.95] tracking-tight text-balance">
               A new smile,
               <br />
               <span className="italic text-accent-deep">in just two days.</span>
@@ -25,33 +25,12 @@ export default function Hero() {
               exceptional eye for aesthetics
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a
-                href="#contact"
-                className="group inline-flex items-center gap-3 rounded-full border-[3px] border-foreground text-foreground pl-7 pr-2.5 py-2.5 text-sm font-medium tracking-wide hover:bg-foreground hover:text-background transition-colors"
-              >
-                Book a free consultation
-                <span className="grid place-items-center w-9 h-9 rounded-full bg-foreground/10 group-hover:bg-background/20 group-hover:translate-x-0.5 transition-all">
-                  →
-                </span>
-              </a>
-              <a
-                href="#portfolio"
-                className="inline-flex items-center gap-2 text-sm tracking-wide text-foreground/80 hover:text-foreground transition-colors"
-              >
-                <span className="underline underline-offset-4 decoration-line">
-                  See real patient results
-                </span>
-              </a>
-            </div>
-
             <div className="mt-9">
               <GoogleRating />
             </div>
 
-            <div className="mt-10 grid grid-cols-3 gap-8 max-w-lg">
+            <div className="mt-10 grid grid-cols-2 gap-8 max-w-lg">
               {[
-                { v: "2", l: "Days to a new smile" },
                 { v: "500+", l: "Smiles transformed" },
                 { v: "100%", l: "In-house crafted" },
               ].map((s) => (
