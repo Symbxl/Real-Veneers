@@ -1,3 +1,5 @@
+import { Stars, GoogleG } from "./GoogleRating";
+
 const reviews = [
   {
     quote:
@@ -25,14 +27,18 @@ export default function Testimonials() {
       <div className="absolute inset-0 grain pointer-events-none" />
       <div className="mx-auto max-w-7xl px-6 sm:px-10 relative">
         <div className="text-center max-w-2xl mx-auto">
-          <div className="text-xs tracking-[0.22em] uppercase text-accent-deep">
-            What patients say
+          <div className="inline-flex items-center gap-4 rounded-full border border-line bg-surface px-6 py-3 shadow-[0_1px_0_rgba(0,0,0,0.02)]">
+            <GoogleG size={24} />
+            <span className="h-6 w-px bg-line" />
+            <Stars size={18} />
+            <span className="text-sm leading-none">
+              <span className="font-semibold text-foreground">5.0</span>
+              <span className="text-foreground-muted">
+                {" "}
+                · 200+ verified Google reviews
+              </span>
+            </span>
           </div>
-          <h2 className="mt-5 font-display text-5xl lg:text-6xl leading-[1.02] tracking-tight text-balance">
-            The work speaks.
-            <br />
-            <span className="italic">Then they do.</span>
-          </h2>
         </div>
 
         <div className="mt-20 grid md:grid-cols-3 gap-6">
@@ -48,7 +54,8 @@ export default function Testimonials() {
                 {r.quote}
               </blockquote>
               <figcaption className="mt-8 pt-6 border-t border-line/60">
-                <div className="text-sm font-medium tracking-wide">
+                <Stars size={14} />
+                <div className="mt-3 text-sm font-medium tracking-wide">
                   {r.name}
                 </div>
                 <div className="mt-1 text-xs uppercase tracking-[0.15em] text-foreground-muted">

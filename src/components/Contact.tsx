@@ -1,24 +1,20 @@
-"use client";
-
-import { useState } from "react";
+import HeroForm from "./HeroForm";
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-
   return (
     <section
       id="contact"
       className="py-28 lg:py-36 bg-foreground text-background relative overflow-hidden"
     >
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.07]"
+        className="absolute inset-0 pointer-events-none opacity-[0.08]"
         style={{
           background:
-            "radial-gradient(ellipse 70% 60% at 80% 20%, #b89968 0%, transparent 60%)",
+            "radial-gradient(ellipse 70% 60% at 80% 15%, #b89968 0%, transparent 60%)",
         }}
       />
       <div className="mx-auto max-w-7xl px-6 sm:px-10 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-16 lg:gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-14 lg:gap-20 items-center">
           <div>
             <div className="text-xs tracking-[0.22em] uppercase text-accent">
               Free consultation
@@ -33,7 +29,7 @@ export default function Contact() {
               — no pressure, no obligation.
             </p>
 
-            <div className="mt-12 space-y-6">
+            <div className="mt-12 border-t border-background/10">
               <ContactRow label="Studio">
                 4660 Sweetwater Blvd, Suite 230
                 <br />
@@ -55,51 +51,9 @@ export default function Contact() {
             </div>
           </div>
 
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSubmitted(true);
-            }}
-            className="bg-background text-foreground rounded-3xl p-8 lg:p-10 self-start"
-          >
-            {submitted ? (
-              <div className="py-12 text-center">
-                <div className="font-display text-3xl">Thank you.</div>
-                <p className="mt-4 text-foreground-muted">
-                  We&apos;ll be in touch within one business day.
-                </p>
-              </div>
-            ) : (
-              <div className="space-y-5">
-                <Field label="Name" name="name" required />
-                <Field label="Phone" name="phone" type="tel" required />
-                <Field label="Email" name="email" type="email" required />
-                <div>
-                  <label className="block text-xs tracking-[0.18em] uppercase text-foreground-muted mb-2">
-                    Tell us about your smile
-                  </label>
-                  <textarea
-                    name="message"
-                    rows={4}
-                    className="w-full bg-background-muted/50 border border-line rounded-xl px-4 py-3 text-foreground placeholder:text-foreground-muted/60 focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition resize-none"
-                    placeholder="What would you change if you could?"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full inline-flex items-center justify-center gap-3 rounded-full bg-foreground text-background px-6 py-4 text-sm tracking-wide hover:bg-accent-deep transition-colors group"
-                >
-                  Request consultation
-                  <span className="group-hover:translate-x-0.5 transition-transform">
-                    →
-                  </span>
-                </button>
-                <p className="text-xs text-foreground-muted text-center pt-2">
-                  We&apos;ll never share your information.
-                </p>
-              </div>
-            )}
-          </form>
+          <div className="lg:pl-4">
+            <HeroForm />
+          </div>
         </div>
       </div>
     </section>
@@ -114,39 +68,13 @@ function ContactRow({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex gap-6 items-start border-t border-background/10 pt-6">
+    <div className="flex gap-6 items-start border-b border-background/10 py-5">
       <div className="text-xs tracking-[0.18em] uppercase text-background/50 w-20 shrink-0 pt-1">
         {label}
       </div>
       <div className="text-base text-background/90 leading-relaxed">
         {children}
       </div>
-    </div>
-  );
-}
-
-function Field({
-  label,
-  name,
-  type = "text",
-  required,
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  required?: boolean;
-}) {
-  return (
-    <div>
-      <label className="block text-xs tracking-[0.18em] uppercase text-foreground-muted mb-2">
-        {label}
-      </label>
-      <input
-        name={name}
-        type={type}
-        required={required}
-        className="w-full bg-transparent border border-line rounded-xl px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition"
-      />
     </div>
   );
 }

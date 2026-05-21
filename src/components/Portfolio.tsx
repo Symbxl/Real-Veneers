@@ -267,10 +267,7 @@ export default function Portfolio() {
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
           <div className="max-w-2xl">
-            <div className="text-xs tracking-[0.22em] uppercase text-accent-deep">
-              Real patients, real results
-            </div>
-            <h2 className="mt-5 font-display text-5xl lg:text-6xl leading-[1.02] tracking-tight text-balance">
+            <h2 className="font-display text-5xl lg:text-6xl leading-[1.02] tracking-tight text-balance">
               Meet our <span className="italic">models.</span>
             </h2>
           </div>

@@ -4,10 +4,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const links = [
-  { href: "#process", label: "The Process" },
+  { href: "/process", label: "The Process" },
+  { href: "/process#why", label: "Why Us" },
   { href: "#portfolio", label: "Portfolio" },
   { href: "#about", label: "Dr. Trevino" },
-  { href: "#contact", label: "Contact" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export default function Nav() {
@@ -36,7 +37,7 @@ export default function Nav() {
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
             <a
               key={l.href}
@@ -49,7 +50,7 @@ export default function Nav() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-4">
           <a
             href="tel:+12819801733"
             className="text-sm tracking-wide text-foreground/75 hover:text-foreground transition-colors"
@@ -67,7 +68,7 @@ export default function Nav() {
 
         <button
           aria-label="Toggle menu"
-          className="md:hidden p-2 -mr-2"
+          className="lg:hidden p-2 -mr-2"
           onClick={() => setOpen((v) => !v)}
         >
           <div className="w-6 flex flex-col gap-1.5">
@@ -91,7 +92,7 @@ export default function Nav() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-line/60 bg-background/95 backdrop-blur-xl">
+        <div className="lg:hidden border-t border-line/60 bg-background/95 backdrop-blur-xl">
           <div className="px-6 py-6 flex flex-col gap-5">
             {links.map((l) => (
               <a
