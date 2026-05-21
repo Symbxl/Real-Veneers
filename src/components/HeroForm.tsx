@@ -55,7 +55,7 @@ export default function HeroForm() {
         </button>
       </div>
 
-      <h3 className="mt-6 font-display text-3xl lg:text-4xl leading-tight tracking-tight">
+      <h3 className="mt-6 font-display text-3xl lg:text-4xl leading-tight tracking-tight text-foreground">
         Free Smile Consultation
       </h3>
       <p className="mt-3 text-foreground-muted leading-relaxed">

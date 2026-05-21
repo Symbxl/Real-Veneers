@@ -2,6 +2,8 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import ProcessIntro from "@/components/ProcessIntro";
 import ToothShowcase from "@/components/ToothShowcase";
+import ConsultSlideshow from "@/components/ConsultSlideshow";
+import VideoButton from "@/components/VideoButton";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Footer from "@/components/Footer";
 
@@ -74,11 +76,9 @@ export default function ProcessPage() {
                 then a quick digital scan. No trays, no impression goop, no
                 obligation. You leave knowing exactly what&apos;s possible.
               </p>
+              <VideoButton src="/stepone.mov" />
             </div>
-            <ImageStage
-              src="/front.webp"
-              alt="Digital 3D scan taken during a free consultation"
-            />
+            <ConsultSlideshow />
           </div>
         </Panel>
 
@@ -121,10 +121,8 @@ export default function ProcessPage() {
               </p>
             </div>
             <ImageStage
-              src="/pps-product-image-cerec-primemill-mtl-zirconia.png"
-              alt="CEREC Primemill milling unit used to cut veneers in-house"
-              imgClassName="scale-[1.4]"
-              bare
+              src="/milled.jpg"
+              alt="Veneers milled in-house at the RealVeneers lab"
             />
           </div>
         </Panel>
@@ -155,8 +153,8 @@ export default function ProcessPage() {
               </Link>
             </div>
             <ImageStage
-              src="/modal.webp"
-              alt="Hand-finished porcelain veneer model showing a complete smile"
+              src="/result.jpg"
+              alt="A finished veneer smile transformation"
             />
           </div>
         </Panel>

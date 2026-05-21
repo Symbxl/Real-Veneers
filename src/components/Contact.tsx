@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-28 lg:py-36 bg-foreground text-background relative overflow-hidden"
+      className="py-28 lg:py-36 bg-background text-foreground relative overflow-hidden"
     >
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.08]"
@@ -23,13 +23,13 @@ export default function Contact() {
               Start with a<br />
               <span className="italic text-accent">conversation.</span>
             </h2>
-            <p className="mt-7 text-lg leading-relaxed text-background/75 max-w-md">
+            <p className="mt-7 text-lg leading-relaxed text-foreground/75 max-w-md">
               Tell us a little about the smile you have and the smile you want.
               We&apos;ll get back to you within one business day with next steps
               — no pressure, no obligation.
             </p>
 
-            <div className="mt-12 border-t border-background/10">
+            <div className="mt-12 border-t border-foreground/10">
               <ContactRow label="Studio">
                 4660 Sweetwater Blvd, Suite 230
                 <br />
@@ -68,11 +68,11 @@ function ContactRow({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex gap-6 items-start border-b border-background/10 py-5">
-      <div className="text-xs tracking-[0.18em] uppercase text-background/50 w-20 shrink-0 pt-1">
+    <div className="flex gap-6 items-start border-b border-foreground/10 py-5">
+      <div className="text-xs tracking-[0.18em] uppercase text-foreground/50 w-20 shrink-0 pt-1">
         {label}
       </div>
-      <div className="text-base text-background/90 leading-relaxed">
+      <div className="text-base text-foreground/90 leading-relaxed">
         {children}
       </div>
     </div>

@@ -9,6 +9,14 @@
   --accent-deep: #8b6f3f;
   --accent-soft: #f0e3cf;
   --line: #e8e2d4;
+
+  /* Type system */
+  --font-header: "Adobe Garamond Pro", var(--font-eb-garamond), "EB Garamond",
+    Garamond, Georgia, serif;
+  --font-subhead: var(--font-alegreya), "Alegreya Sans SC", ui-sans-serif,
+    system-ui, sans-serif;
+  --font-body: "Calibri", "Carlito", "Segoe UI", system-ui, -apple-system,
+    sans-serif;
 }
 
 @theme inline {
@@ -20,8 +28,8 @@
   --color-accent-deep: var(--accent-deep);
   --color-accent-soft: var(--accent-soft);
   --color-line: var(--line);
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-header);
 }
 
 html,
@@ -31,8 +39,7 @@ body {
 }
 
 body {
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  font-feature-settings: "ss01", "cv11";
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -42,10 +49,15 @@ body {
   color: var(--foreground);
 }
 
+/* Headers — Adobe Garamond Pro */
 .font-display {
-  font-family: var(--font-cormorant), ui-serif, Georgia, serif;
-  font-feature-settings: "liga", "dlig";
+  font-family: var(--font-header);
   letter-spacing: -0.01em;
+}
+
+/* Subheaders / kickers — small-caps labels carry the subheader font */
+[class~="uppercase"] {
+  font-family: var(--font-subhead);
 }
 
 .text-balance {

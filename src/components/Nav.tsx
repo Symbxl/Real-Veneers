@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 const links = [
   { href: "/process", label: "The Process" },
   { href: "/process#why", label: "Why Us" },
-  { href: "#portfolio", label: "Portfolio" },
-  { href: "#about", label: "Dr. Trevino" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/about", label: "Dr. Trevino" },
+  { href: "/blog", label: "Blog" },
 ];
 
 export default function Nav() {
@@ -39,14 +39,14 @@ export default function Nav() {
 
         <nav className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               className="text-sm tracking-wide text-foreground/75 hover:text-foreground transition-colors relative group"
             >
               {l.label}
               <span className="absolute -bottom-1 left-0 right-0 h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -95,14 +95,14 @@ export default function Nav() {
         <div className="lg:hidden border-t border-line/60 bg-background/95 backdrop-blur-xl">
           <div className="px-6 py-6 flex flex-col gap-5">
             {links.map((l) => (
-              <a
+              <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
                 className="text-base text-foreground"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
             <a
               href="#contact"

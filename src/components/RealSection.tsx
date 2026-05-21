@@ -45,7 +45,7 @@ function Outro({ progress }: { progress: MotionValue<number> }) {
   const line2Blur = useTransform(progress, [0.74, 0.86], ["8px", "0px"]);
 
   return (
-    <div className="absolute inset-x-0 bottom-[10vh] flex flex-col items-center px-6 text-center">
+    <div className="absolute inset-x-0 bottom-[10vh] hidden md:flex flex-col items-center px-6 text-center">
       <p className="font-display text-[clamp(1.5rem,3.4vw,3rem)] leading-[1.15] tracking-tight">
         <motion.span
           style={{ opacity: line1Opacity, y: line1Y, filter: line1Blur }}
@@ -72,7 +72,7 @@ export default function RealSection() {
   });
 
   return (
-    <section ref={ref} className="relative h-[260vh] bg-white">
+    <section ref={ref} className="relative h-[150vh] md:h-[260vh] bg-white">
       <div className="sticky top-0 flex h-screen flex-col items-center justify-center px-6 overflow-hidden">
         <h2 className="z-40 flex justify-center gap-x-[0.5em] whitespace-nowrap font-display text-[clamp(1.25rem,6.2vw,6rem)] leading-[1] tracking-tight text-center">
           {WORDS.map((word, i) => (

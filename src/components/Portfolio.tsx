@@ -46,7 +46,7 @@ function BeforeAfter({ patient, index }: { patient: Patient; index: number }) {
   const [pos, setPos] = useState(50);
 
   return (
-    <div className="group relative">
+    <div className={`group relative ${index > 0 ? "hidden sm:block" : ""}`}>
       <div
         className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-foreground select-none cursor-ew-resize"
         onPointerMove={(e) => {
