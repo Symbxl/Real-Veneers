@@ -45,7 +45,7 @@ function Outro({ progress }: { progress: MotionValue<number> }) {
   const line2Blur = useTransform(progress, [0.74, 0.86], ["8px", "0px"]);
 
   return (
-    <div className="absolute inset-x-0 bottom-[10vh] hidden md:flex flex-col items-center px-6 text-center">
+    <div className="absolute inset-x-0 bottom-[10vh] flex flex-col items-center px-6 text-center">
       <p className="font-display text-[clamp(1.5rem,3.4vw,3rem)] leading-[1.15] tracking-tight">
         <motion.span
           style={{ opacity: line1Opacity, y: line1Y, filter: line1Blur }}
