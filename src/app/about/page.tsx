@@ -157,6 +157,51 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Outside the office */}
+        <section className="py-24 lg:py-32">
+          <div className="mx-auto max-w-7xl px-6 sm:px-10">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-3xl ring-1 ring-line bg-background">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/trevino-44.jpg"
+                  alt="Dr. Ryan Trevino outside the office"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <div className="text-xs tracking-[0.22em] uppercase text-accent-deep">
+                  Outside the office
+                </div>
+                <h2 className="mt-5 font-display text-4xl lg:text-5xl leading-[1.05] tracking-tight text-balance">
+                  When the lab coat comes off.
+                </h2>
+                <div className="mt-7 space-y-5 text-lg leading-relaxed text-foreground-muted">
+                  {personal.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-16 grid sm:grid-cols-2 gap-6">
+              {quotes.map((q) => (
+                <figure
+                  key={q.name}
+                  className="rounded-2xl border border-line bg-surface p-8"
+                >
+                  <blockquote className="font-display text-xl lg:text-2xl leading-snug text-foreground">
+                    {q.quote}
+                  </blockquote>
+                  <figcaption className="mt-5 text-xs tracking-[0.18em] uppercase text-foreground-muted">
+                    — {q.name}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* The two practices */}
         <section className="py-24 lg:py-32 bg-surface border-y border-line">
           <div className="mx-auto max-w-7xl px-6 sm:px-10">
@@ -200,43 +245,6 @@ export default function AboutPage() {
                     </span>
                   )}
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Outside the office */}
-        <section className="py-24 lg:py-32">
-          <div className="mx-auto max-w-7xl px-6 sm:px-10">
-            <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20">
-              <div>
-                <div className="text-xs tracking-[0.22em] uppercase text-accent-deep">
-                  Outside the office
-                </div>
-                <h2 className="mt-5 font-display text-4xl lg:text-5xl leading-[1.05] tracking-tight text-balance">
-                  When the lab coat comes off.
-                </h2>
-              </div>
-              <div className="space-y-5 text-lg leading-relaxed text-foreground-muted">
-                {personal.map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-16 grid sm:grid-cols-2 gap-6">
-              {quotes.map((q) => (
-                <figure
-                  key={q.name}
-                  className="rounded-2xl border border-line bg-surface p-8"
-                >
-                  <blockquote className="font-display text-xl lg:text-2xl leading-snug text-foreground">
-                    {q.quote}
-                  </blockquote>
-                  <figcaption className="mt-5 text-xs tracking-[0.18em] uppercase text-foreground-muted">
-                    — {q.name}
-                  </figcaption>
-                </figure>
               ))}
             </div>
           </div>

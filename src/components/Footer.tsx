@@ -36,7 +36,14 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-foreground-muted">
           <div>© {new Date().getFullYear()} RealVeneers. All rights reserved.</div>
           <div className="tracking-wide">
-            Crafted with care in Sugar Land, Texas.
+            <a
+              href="https://relight.studio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-foreground"
+            >
+              Built with purpose. Designed with intention.
+            </a>
           </div>
         </div>
       </div>

@@ -72,7 +72,7 @@ export default function ProcessPage() {
                 It starts with a free consultation.
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-foreground-muted text-balance">
-                A relaxed, no-pressure conversation about the smile you want —
+                A relaxed, no-pressure conversation about the smile you want,
                 then a quick digital scan. No trays, no impression goop, no
                 obligation. You leave knowing exactly what&apos;s possible.
               </p>
@@ -93,10 +93,10 @@ export default function ProcessPage() {
                 Shaped the way a real tooth is shaped.
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-foreground-muted text-balance">
-                Before anything is milled, your smile is built in 3D — every
+                Before anything is milled, your smile is built in 3D. Every
                 edge, every curve, every translucent layer modeled to sit
                 naturally inside your face. Watch it cycle through every tooth
-                type — the anatomy we design against.
+                type, the anatomy we design against.
               </p>
             </div>
             <ToothShowcase />
@@ -114,7 +114,7 @@ export default function ProcessPage() {
                 Milled in the next room, not mailed away.
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-foreground-muted text-balance">
-                Your veneers are cut on a CEREC Primemill — a five-axis,
+                Your veneers are cut on a CEREC Primemill, a five-axis,
                 twin-spindle machine that carves each restoration from a solid
                 ceramic block to tolerances under twenty-five microns. No
                 impressions sent away, no two-week waits.
@@ -139,7 +139,7 @@ export default function ProcessPage() {
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-foreground-muted text-balance">
                 Two days after your first scan, the temporaries come off. Final
-                fit, bite, and hand-polish — a complete, hand-finished smile
+                fit, bite, and hand-polish, a complete, hand-finished smile
                 designed to look lived-in, not installed.
               </p>
               <Link

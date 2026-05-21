@@ -597,6 +597,239 @@ export const posts: Post[] = [
     ],
     related: ["2-day-veneers-process", "veneers-cost-sugar-land-tx"],
   },
+
+  {
+    slug: "how-long-do-veneers-last",
+    title: "How Long Do Veneers Last? A Sugar Land Dentist Explains",
+    h1: "How Long Do Veneers Last — and How to Make Them Last Longer",
+    description:
+      "How long do porcelain veneers last? Dr. Ryan Trevino of RealVeneers in Sugar Land, TX explains veneer lifespan, what shortens it, and how to care for them.",
+    excerpt:
+      "Porcelain veneers can last 10–20 years — but the number on the calendar depends a lot on you. Here is how to get the most from them.",
+    category: "Aftercare",
+    keywords: [
+      "how long do veneers last",
+      "veneer lifespan",
+      "do veneers last forever",
+      "how to care for veneers",
+      "porcelain veneers Sugar Land",
+    ],
+    author: "Dr. Ryan Trevino, DDS",
+    published: "2026-05-19",
+    updated: "2026-05-21",
+    readMinutes: 6,
+    hero: "/result.jpg",
+    heroAlt:
+      "A long-lasting, natural porcelain veneer smile maintained with good care at RealVeneers in Sugar Land, TX",
+    body: [
+      {
+        type: "p",
+        text: "Porcelain veneers are an investment, so it is fair to ask how long that investment lasts. The short answer: a well-made porcelain veneer typically lasts 10 to 20 years, and many last longer. But the number on the calendar has as much to do with how you care for them as with the veneers themselves.",
+      },
+      {
+        type: "p",
+        text: "Here is what actually determines veneer lifespan — and the everyday habits that quietly add or subtract years.",
+      },
+      { type: "h2", text: "How long each type of veneer lasts" },
+      {
+        type: "ul",
+        items: [
+          "Porcelain veneers — typically 10–20 years, and often longer with good care and a protective night guard.",
+          "Composite veneers — generally 4–8 years before they need refreshing or replacing.",
+          "The bond underneath — the adhesive that holds a veneer in place is durable, but it is one more reason routine dental visits matter: a dentist catches a lifting margin long before you would.",
+        ],
+      },
+      {
+        type: "p",
+        text: "We compare the two materials in depth in our porcelain vs. composite veneers guide, but for pure longevity, porcelain is the clear winner.",
+      },
+      { type: "h2", text: "What shortens a veneer's life" },
+      {
+        type: "p",
+        text: "Veneers rarely fail on their own. When one chips, debonds, or wears early, the cause is usually one of these:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Grinding and clenching (bruxism) — the single most common reason veneers chip. A custom night guard is the best protection.",
+          "Using teeth as tools — opening packaging, biting nails, or chewing pens and ice.",
+          "Biting hard foods with the front teeth — veneers are thinnest at the biting edge, so direct pressure there is risky.",
+          "Poor gum health — receding gums can expose a veneer's edge and change how it looks and feels over time.",
+          "A poor initial fit — veneers that were over-bulked or badly bonded simply do not last, which is why who places them matters most.",
+        ],
+      },
+      {
+        type: "callout",
+        text: "Most “veneer failures” are really bite or habit problems. Protecting your veneers is mostly about protecting your natural bite.",
+      },
+      { type: "h2", text: "How to make your veneers last" },
+      {
+        type: "p",
+        text: "Caring for veneers is not complicated — it is the same care that keeps natural teeth healthy, plus a couple of veneer-specific habits:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Brush twice a day with a non-abrasive toothpaste and floss daily — veneers do not decay, but the natural tooth and gum around them still can.",
+          "Wear a night guard if you grind or clench. This is the single highest-value thing you can do.",
+          "Keep your routine cleanings and checkups, usually every six months.",
+          "Do not use your teeth as tools, and go easy biting into very hard foods.",
+          "With composite veneers, limit deep-staining coffee, tea, and red wine — porcelain resists staining far better.",
+        ],
+      },
+      { type: "h2", text: "Do veneers ever need to be replaced?" },
+      {
+        type: "p",
+        text: "Yes — eventually. A veneer is a restoration, not a permanent part of the body, so after 10–20 years porcelain veneers are usually refreshed. Signs it may be time include visible wear, a chip, staining at the margins, or a change in fit. Replacement is straightforward: the old veneer is removed and a new one is designed and bonded.",
+      },
+      {
+        type: "p",
+        text: "Because a small amount of enamel was shaped for the original veneer, the tooth will always need a veneer or crown going forward — something we explain to every patient before treatment in our guide to what real veneers are.",
+      },
+      { type: "h2", text: "The bottom line" },
+      {
+        type: "p",
+        text: "Treat your veneers like the investment they are — protect your bite, keep up routine care, and choose an experienced cosmetic dentist from the start — and a decade or two of confident smiling is a realistic expectation. At RealVeneers in Sugar Land, every case is designed and hand-finished by Dr. Ryan Trevino, and every patient leaves knowing exactly how to care for the result.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How long do porcelain veneers last?",
+        a: "Porcelain veneers typically last 10 to 20 years, and often longer with good oral hygiene, routine dental visits, and a night guard if you grind your teeth. Composite veneers generally last about 4 to 8 years.",
+      },
+      {
+        q: "Do veneers last forever?",
+        a: "No. Veneers are a long-lasting restoration but not a permanent one. Porcelain veneers usually need replacing after 10–20 years, and because a small amount of enamel is shaped for them, the tooth will always need a veneer or crown afterward.",
+      },
+      {
+        q: "What is the best way to make veneers last longer?",
+        a: "Wear a custom night guard if you grind or clench, brush and floss daily with a non-abrasive toothpaste, keep regular cleanings, and avoid using your teeth as tools. These habits protect both the veneers and the natural teeth underneath.",
+      },
+    ],
+    related: ["what-are-real-veneers", "porcelain-vs-composite-veneers"],
+  },
+
+  {
+    slug: "veneers-vs-crowns",
+    title: "Veneers vs. Crowns: What's the Difference?",
+    h1: "Veneers vs. Crowns: Which Is Right for Your Tooth?",
+    description:
+      "Veneers or a crown? Dr. Ryan Trevino, a cosmetic dentist in Sugar Land, TX, explains the difference, when each is used, cost, and how to choose.",
+    excerpt:
+      "They both cover a tooth — but a veneer and a crown solve very different problems. Here is how to tell which one you actually need.",
+    category: "Veneers 101",
+    keywords: [
+      "veneers vs crowns",
+      "difference between veneers and crowns",
+      "crown or veneer",
+      "dental crown Sugar Land",
+      "cosmetic dentist Houston",
+    ],
+    author: "Dr. Ryan Trevino, DDS",
+    published: "2026-05-21",
+    updated: "2026-05-21",
+    readMinutes: 6,
+    hero: "/consult.jpg",
+    heroAlt:
+      "A cosmetic dentist explaining the difference between veneers and crowns at RealVeneers in Sugar Land, TX",
+    body: [
+      {
+        type: "p",
+        text: "Veneers and crowns are often mentioned in the same breath, and they do have something in common: both are custom restorations bonded to a tooth. But they solve different problems — and having the wrong one recommended to you can mean removing far more tooth than you needed to.",
+      },
+      {
+        type: "p",
+        text: "Here is the honest, plain-English difference, and how a cosmetic dentist decides between them.",
+      },
+      { type: "h2", text: "The core difference: how much tooth they cover" },
+      {
+        type: "p",
+        text: "The simplest way to picture it:",
+      },
+      {
+        type: "ul",
+        items: [
+          "A veneer is a thin shell that covers only the front and biting edge of a tooth. It is mainly a cosmetic restoration.",
+          "A crown is a cap that covers the entire tooth — front, back, and every side. It is mainly a structural restoration.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Because a crown wraps the whole tooth, placing one means removing significantly more tooth structure than a veneer does. That is the right call when a tooth genuinely needs it — but it is also why a careful dentist will not crown a tooth that a veneer could have handled.",
+      },
+      { type: "h2", text: "When a veneer is the right choice" },
+      {
+        type: "p",
+        text: "Veneers are designed to cosmetically improve teeth that are basically healthy and strong. They are a strong fit for:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Chips, worn edges, or minor cracks in otherwise sound teeth",
+          "Permanent staining that whitening cannot lift",
+          "Small gaps between teeth",
+          "Teeth that are slightly crooked, short, or uneven",
+          "A full smile makeover, where the front teeth show",
+        ],
+      },
+      { type: "h2", text: "When a crown is the right choice" },
+      {
+        type: "p",
+        text: "Crowns are about protecting and rebuilding a tooth that has lost too much structure to support itself. A crown is usually needed when a tooth has:",
+      },
+      {
+        type: "ul",
+        items: [
+          "A large filling or extensive decay",
+          "A significant crack or a broken cusp",
+          "Had root canal treatment, which can leave a tooth brittle",
+          "Too little healthy enamel left for a veneer to bond to reliably",
+        ],
+      },
+      {
+        type: "callout",
+        text: "A useful rule of thumb: veneers improve how a healthy tooth looks; crowns rebuild a damaged tooth so it can function. Many smiles need only veneers — and a conservative dentist will tell you so.",
+      },
+      { type: "h2", text: "Cost, longevity, and appearance" },
+      {
+        type: "ul",
+        items: [
+          "Cost — in the Sugar Land and Houston area, porcelain veneers and crowns fall in a broadly similar per-tooth range; our Sugar Land veneer cost guide breaks the numbers down.",
+          "Longevity — both porcelain veneers and crowns typically last 10–20 years with good care.",
+          "Appearance — a modern all-ceramic crown can look excellent, but veneers, because they preserve more of your natural tooth, often give the most lifelike result on front teeth.",
+        ],
+      },
+      { type: "h2", text: "How a dentist decides" },
+      {
+        type: "p",
+        text: "The decision is not about preference — it is about how much healthy tooth is there to work with. At a consultation, the dentist examines each tooth, often with X-rays, and recommends the most conservative option that will actually last. If a tooth is healthy and the goal is cosmetic, that is a veneer. If a tooth is compromised, a crown protects it.",
+      },
+      {
+        type: "p",
+        text: "Be cautious of any plan that crowns teeth a veneer could have handled — it is exactly the kind of over-treatment our guide to choosing a veneers dentist warns about.",
+      },
+      { type: "h2", text: "Veneers and crowns at RealVeneers" },
+      {
+        type: "p",
+        text: "RealVeneers in Sugar Land, TX is a studio focused on natural porcelain veneers, designed and hand-finished in-house by Dr. Ryan Trevino. When a tooth genuinely needs a crown, that is part of an honest treatment plan too. Either way, every consultation starts with a written plan and a straight answer about which restoration your tooth actually needs.",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is the difference between a veneer and a crown?",
+        a: "A veneer is a thin shell that covers only the front of a tooth and is mainly cosmetic. A crown caps the entire tooth and is mainly structural, used to protect and rebuild a damaged tooth. A crown requires removing more tooth structure than a veneer.",
+      },
+      {
+        q: "Is a veneer or a crown better?",
+        a: "Neither is universally better — it depends on the tooth. Veneers are best for cosmetically improving healthy teeth, while crowns are needed for teeth weakened by large fillings, decay, cracks, or root canal treatment. A dentist recommends the most conservative option that will last.",
+      },
+      {
+        q: "Do veneers and crowns cost the same?",
+        a: "In the Sugar Land and Houston area they fall in a broadly similar per-tooth range, though the exact price depends on the material and the specific case. A written, case-specific estimate from your dentist is the only accurate number.",
+      },
+    ],
+    related: ["what-are-real-veneers", "how-to-choose-a-veneers-dentist-sugar-land"],
+  },
 ];
 
 export function getPost(slug: string): Post | undefined {

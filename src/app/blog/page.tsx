@@ -32,7 +32,8 @@ function fmt(iso: string) {
 }
 
 export default function BlogIndexPage() {
-  const [featured, ...rest] = postsByDate;
+  // Hide the 2 oldest posts from the index (postsByDate is newest-first).
+  const [featured, ...rest] = postsByDate.slice(0, -2);
 
   return (
     <>
