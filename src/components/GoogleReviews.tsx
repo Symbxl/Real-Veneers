@@ -27,17 +27,9 @@ const reviews = [
   },
 ];
 
-function FadedG() {
-  return (
-    <div className="opacity-25" aria-hidden>
-      <GoogleG size={40} />
-    </div>
-  );
-}
-
 export default function GoogleReviews() {
   return (
-    <section className="bg-white py-28 lg:py-40">
+    <section className="bg-background py-28 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <div className="flex flex-col items-center text-center">
           <div className="inline-flex items-center gap-2.5 rounded-full border border-line bg-surface px-6 py-2.5 shadow-[0_1px_0_rgba(0,0,0,0.02)]">
@@ -58,42 +50,51 @@ export default function GoogleReviews() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+        <div className="mt-16 grid gap-7 md:grid-cols-3">
           {reviews.map((r) => (
             <figure
               key={r.name}
-              className="flex flex-col rounded-3xl border border-line/60 bg-surface p-9 lg:p-10 shadow-[0_1px_0_rgba(0,0,0,0.02)]"
+              className="group relative flex flex-col rounded-3xl bg-white p-9 lg:p-10 ring-1 ring-line/70 shadow-[0_1px_2px_rgba(15,15,16,0.04),0_14px_36px_-18px_rgba(15,15,16,0.14)] transition-all duration-300 hover:-translate-y-1.5 hover:ring-accent/40 hover:shadow-[0_1px_2px_rgba(15,15,16,0.04),0_30px_56px_-22px_rgba(15,15,16,0.26)]"
             >
-              <div className="flex items-start justify-between">
+              <div className="relative flex items-center justify-between">
                 <Stars size={20} />
-                <FadedG />
+                <GoogleG size={26} />
               </div>
 
-              <blockquote className="mt-7 flex-1 text-[17px] leading-relaxed text-foreground-muted">
+              <blockquote className="relative mt-7 flex-1 text-[17px] leading-relaxed text-foreground/80">
                 {r.quote}
               </blockquote>
 
               <a
                 href="#"
-                className="mt-5 text-sm font-medium text-accent-deep underline underline-offset-4"
+                className="relative mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-medium text-accent-deep transition-colors hover:text-foreground"
               >
                 Read more
+                <span
+                  aria-hidden
+                  className="transition-transform group-hover:translate-x-0.5"
+                >
+                  →
+                </span>
               </a>
 
-              <figcaption className="mt-7 flex items-center gap-3.5 rounded-2xl border border-line/60 bg-white p-4">
+              <figcaption className="relative mt-7 flex items-center gap-3.5 border-t border-line pt-6">
                 <span
-                  className="grid h-12 w-12 shrink-0 place-items-center rounded-full text-base font-semibold text-white"
+                  className="grid h-12 w-12 shrink-0 place-items-center rounded-full text-base font-semibold text-white shadow-[0_4px_12px_-2px_rgba(15,15,16,0.3)] ring-2 ring-white"
                   style={{ backgroundColor: r.color }}
                   aria-hidden
                 >
                   {r.initial}
                 </span>
                 <div className="leading-tight">
-                  <div className="text-base font-medium text-foreground">
+                  <div className="text-base font-semibold text-foreground">
                     {r.name}
                   </div>
-                  <div className="mt-0.5 text-sm text-foreground-muted">
-                    {r.date}
+                  <div className="mt-1 flex items-center gap-1.5 text-xs text-foreground-muted">
+                    <GoogleG size={13} />
+                    <span>Posted on Google</span>
+                    <span className="text-line">·</span>
+                    <span>{r.date}</span>
                   </div>
                 </div>
               </figcaption>
