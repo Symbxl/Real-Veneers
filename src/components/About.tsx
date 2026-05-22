@@ -19,19 +19,12 @@ export default function About() {
                 className="absolute inset-0 w-full h-full object-cover object-top"
               />
               <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-foreground/85 via-foreground/25 to-transparent pointer-events-none" />
-              <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-                <div>
-                  <div className="text-[11px] tracking-[0.22em] uppercase text-white/65">
-                    Founder &amp; Lead Clinician
-                  </div>
-                  <div className="mt-1.5 font-display text-3xl text-white">
-                    Dr. Ryan Trevino
-                  </div>
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="text-[11px] tracking-[0.22em] uppercase text-white/65">
+                  Founder &amp; Lead Clinician
                 </div>
-                <div className="text-[11px] tracking-[0.22em] uppercase text-white/65 text-right leading-relaxed">
-                  DDS
-                  <br />
-                  Cosmetic
+                <div className="mt-1.5 font-display text-3xl text-white">
+                  Dr. Ryan Trevino
                 </div>
               </div>
             </div>

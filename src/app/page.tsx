@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import RealSection from "@/components/RealSection";
+import VideoSection from "@/components/VideoSection";
 import GoogleReviews from "@/components/GoogleReviews";
 import PortfolioShowcase from "@/components/PortfolioShowcase";
 import About from "@/components/About";
@@ -16,6 +17,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <RealSection />
+        <VideoSection />
         <PortfolioShowcase />
         <About />
         <GoogleReviews />

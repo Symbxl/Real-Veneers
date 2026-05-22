@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import HCaptcha from "./HCaptcha";
 
 export default function HeroForm() {
   const [step, setStep] = useState<0 | 1>(0);
@@ -8,7 +9,7 @@ export default function HeroForm() {
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
   const [consent, setConsent] = useState(true);
-  const [verified, setVerified] = useState(false);
+  const [token, setToken] = useState<string | null>(null);
 
   return (
     <div className="relative bg-surface rounded-2xl p-7 lg:p-9 shadow-[0_30px_80px_-20px_rgba(15,15,16,0.22),0_8px_24px_-12px_rgba(15,15,16,0.12)] ring-1 ring-line/60">
@@ -113,69 +114,7 @@ export default function HeroForm() {
           />
         </div>
 
-        <div className="bg-[#fafbfc] border border-[#e0e3e8] rounded-md px-3 py-2.5 flex items-center justify-between">
-          <label className="flex items-center gap-3 cursor-pointer select-none">
-            <button
-              type="button"
-              role="checkbox"
-              aria-checked={verified}
-              onClick={() => setVerified((v) => !v)}
-              className={`relative w-6 h-6 rounded border bg-white transition-colors ${
-                verified
-                  ? "border-[#00838f]"
-                  : "border-[#c5c9d0] hover:border-[#9aa0a6]"
-              }`}
-            >
-              {verified && (
-                <svg
-                  viewBox="0 0 24 24"
-                  className="absolute inset-0 m-auto w-4 h-4 text-[#00838f]"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-              )}
-            </button>
-            <span className="text-sm text-[#3c4043]">I am human</span>
-          </label>
-          <div className="flex flex-col items-end leading-none">
-            <div className="flex items-center gap-1.5">
-              <svg
-                viewBox="0 0 32 32"
-                className="w-6 h-6"
-                aria-hidden="true"
-              >
-                <path
-                  d="M16 2 L4 8 v9 c0 7 5 12 12 13 7-1 12-6 12-13 V8 L16 2 z"
-                  fill="#00838f"
-                />
-                <path
-                  d="M11 11 v10 M11 16 h5 M16 11 v10"
-                  stroke="#fff"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-              </svg>
-              <span className="text-[11px] font-medium text-[#3c4043] tracking-tight">
-                hCaptcha
-              </span>
-            </div>
-            <div className="mt-1 text-[10px] text-[#70757a]">
-              <a href="#" className="hover:underline">
-                Privacy
-              </a>
-              <span> · </span>
-              <a href="#" className="hover:underline">
-                Terms
-              </a>
-            </div>
-          </div>
-        </div>
+        <HCaptcha onVerify={setToken} onExpire={() => setToken(null)} />
 
         <label className="flex items-start gap-3 pt-1 cursor-pointer">
           <input
@@ -201,7 +140,7 @@ export default function HeroForm() {
 
         <button
           type="submit"
-          disabled={!consent}
+          disabled={!consent || !token}
           className="w-full inline-flex items-center justify-center gap-3 rounded-xl bg-foreground text-background px-6 py-4 text-base tracking-wide hover:bg-accent-deep transition-colors group disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_12px_30px_-12px_rgba(15,15,16,0.45)]"
         >
           Continue

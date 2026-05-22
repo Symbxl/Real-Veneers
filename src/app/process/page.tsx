@@ -2,7 +2,6 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import ProcessIntro from "@/components/ProcessIntro";
 import ToothShowcase from "@/components/ToothShowcase";
-import ConsultSlideshow from "@/components/ConsultSlideshow";
 import VideoButton from "@/components/VideoButton";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Footer from "@/components/Footer";
@@ -78,7 +77,17 @@ export default function ProcessPage() {
               </p>
               <VideoButton src="/stepone.mov" />
             </div>
-            <ConsultSlideshow />
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl ring-1 ring-line bg-background">
+              <video
+                src="/video.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
           </div>
         </Panel>
 
@@ -120,10 +129,17 @@ export default function ProcessPage() {
                 impressions sent away, no two-week waits.
               </p>
             </div>
-            <ImageStage
-              src="/milled.jpg"
-              alt="Veneers milled in-house at the RealVeneers lab"
-            />
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl ring-1 ring-line bg-background">
+              <video
+                src="/process.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
           </div>
         </Panel>
 

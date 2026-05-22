@@ -14,7 +14,7 @@ export default function Hero() {
               Sugar Land · Houston, TX
             </div>
 
-            <h1 className="mt-6 font-display text-[2.6rem] md:text-[clamp(2.25rem,5.5vw,4.75rem)] leading-[0.95] tracking-tight text-balance">
+            <h1 className="mt-6 font-display text-[4.75rem] md:text-[clamp(4.75rem,6.5vw,6rem)] leading-[0.95] tracking-tight text-balance">
               A new smile,
               <br />
               <span className="italic text-accent-deep">in just two days.</span>

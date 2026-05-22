@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 
 const links = [
   { href: "/process", label: "The Process" },
-  { href: "/process#why", label: "Why Us" },
   { href: "/portfolio", label: "Portfolio" },
+  { href: "/about-the-practice", label: "About Us" },
   { href: "/about", label: "Dr. Trevino" },
   { href: "/blog", label: "Blog" },
 ];
@@ -30,9 +30,9 @@ export default function Nav() {
           : "bg-background"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-6 sm:px-10 flex items-center justify-between h-20">
+      <div className="mx-auto max-w-7xl px-6 sm:px-10 flex items-center justify-between h-24">
         <Link href="/" className="flex items-center gap-2 group">
-          <span className="font-display text-2xl tracking-tight text-foreground">
+          <span className="font-display text-3xl tracking-tight text-foreground">
             Real<span className="text-accent-deep italic">Veneers</span>
           </span>
         </Link>
@@ -42,7 +42,7 @@ export default function Nav() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-sm tracking-wide text-foreground/75 hover:text-foreground transition-colors relative group"
+              className="text-base tracking-wide text-foreground/75 hover:text-foreground transition-colors relative group"
             >
               {l.label}
               <span className="absolute -bottom-1 left-0 right-0 h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
@@ -53,17 +53,17 @@ export default function Nav() {
         <div className="hidden lg:flex items-center gap-4">
           <a
             href="tel:+12819801733"
-            className="text-sm tracking-wide text-foreground/75 hover:text-foreground transition-colors"
+            className="text-base tracking-wide text-foreground/75 hover:text-foreground transition-colors"
           >
             (281) 980-1733
           </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-2.5 text-sm tracking-wide hover:bg-accent-deep transition-colors"
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3 text-base tracking-wide hover:bg-accent-deep transition-colors"
           >
             Book Consult
             <span aria-hidden>→</span>
-          </a>
+          </Link>
         </div>
 
         <button
@@ -104,13 +104,13 @@ export default function Nav() {
                 {l.label}
               </Link>
             ))}
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex items-center justify-center rounded-full bg-foreground text-background px-5 py-3 text-sm"
             >
               Book Consult →
-            </a>
+            </Link>
           </div>
         </div>
       )}

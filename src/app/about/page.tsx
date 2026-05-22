@@ -4,9 +4,10 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "About Dr. Ryan Trevino — RealVeneers",
+  title: "About Dr. Ryan Trevino",
   description:
     "Meet Dr. Ryan Trevino, DDS — the Sugar Land cosmetic and family dentist behind RealVeneers and Trevino Dental Group.",
+  alternates: { canonical: "/about" },
 };
 
 const intro = [
