@@ -39,5 +39,12 @@ export const site = {
     "Telfair",
   ],
   founder: "Dr. Ryan Trevino, DDS",
-  social: [] as string[],
+  // Public profile/listing URLs — feeds schema.org `sameAs` so Google can
+  // verify this site is the same entity as the Google Business Profile, etc.
+  social: [
+    "https://share.google/iHBs3SSjTtufCv9cv",
+  ] as string[],
+  // Headline social-proof numbers shown in the UI and in aggregateRating.
+  // Keep in sync with on-page copy.
+  rating: { value: 5.0, count: 400 },
 } as const;

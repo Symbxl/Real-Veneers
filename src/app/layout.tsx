@@ -3,7 +3,11 @@ import { Alegreya_Sans_SC, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/site";
-import { dentistSchema } from "@/lib/structured-data";
+import {
+  dentistSchema,
+  personSchema,
+  websiteSchema,
+} from "@/lib/structured-data";
 
 // Subheader / kicker font — small-caps.
 const alegreyaSC = Alegreya_Sans_SC({
@@ -53,12 +57,21 @@ export const metadata: Metadata = {
     siteName: "RealVeneers",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/result.jpg",
+        width: 1200,
+        height: 630,
+        alt: "RealVeneers — porcelain veneer result by Dr. Ryan Trevino, Sugar Land, TX",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "RealVeneers — 2-Day Smile Transformation in Sugar Land, TX",
     description:
       "AI-designed, hand-finished porcelain veneers by Dr. Ryan Trevino in Sugar Land, TX.",
+    images: ["/result.jpg"],
   },
   robots: {
     index: true,
@@ -78,8 +91,12 @@ export default function RootLayout({
       className={`${alegreyaSC.variable} ${ebGaramond.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        {/* Site-wide business identity — feeds the "Real Veneers" knowledge panel. */}
+        {/* Site-wide identity graph — Dentist (LocalBusiness), WebSite, and
+            Dr. Trevino as a Person. Together these feed Google's knowledge
+            panel and give LLMs an unambiguous picture of who the site is. */}
         <JsonLd data={dentistSchema()} />
+        <JsonLd data={websiteSchema()} />
+        <JsonLd data={personSchema()} />
         {children}
       </body>
     </html>

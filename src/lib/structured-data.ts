@@ -59,6 +59,89 @@ export function dentistSchema() {
         closes: "17:00",
       },
     ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: site.rating.value,
+      reviewCount: site.rating.count,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    sameAs: site.social,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Cosmetic dentistry services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "MedicalProcedure",
+            name: "Porcelain veneers",
+            procedureType: "https://schema.org/CosmeticProcedure",
+            bodyLocation: "Teeth",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "MedicalProcedure",
+            name: "Smile makeover",
+            procedureType: "https://schema.org/CosmeticProcedure",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "MedicalProcedure",
+            name: "Teeth whitening",
+            procedureType: "https://schema.org/CosmeticProcedure",
+          },
+        },
+      ],
+    },
+  };
+}
+
+// WebSite — enables the sitelinks search box and ties pages to the brand.
+export function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: site.name,
+    description: site.description,
+    publisher: { "@id": ORG_ID },
+    inLanguage: "en-US",
+  };
+}
+
+// Person — Dr. Trevino. Strengthens E-E-A-T signals (author + practitioner).
+export function personSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${SITE_URL}/#dr-trevino`,
+    name: "Dr. Ryan Trevino, DDS",
+    jobTitle: "Cosmetic and Family Dentist",
+    description:
+      "Sugar Land cosmetic and family dentist; founder of RealVeneers and Trevino Dental Group. Focuses on natural-looking, two-day porcelain veneers.",
+    image: `${SITE_URL}/dr.jpg`,
+    url: `${SITE_URL}/about`,
+    worksFor: { "@id": ORG_ID },
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "Baylor College of Dentistry",
+    },
+    memberOf: [
+      { "@type": "Organization", name: "American Dental Association" },
+      { "@type": "Organization", name: "Texas Dental Association" },
+    ],
+    knowsAbout: [
+      "Porcelain veneers",
+      "Smile makeovers",
+      "Cosmetic dentistry",
+      "Digital dentistry",
+    ],
   };
 }
 
