@@ -70,7 +70,9 @@ export default function GoogleReviews() {
               </blockquote>
 
               <a
-                href="#"
+                href="https://share.google/pkxEsKOxoWHfLFhyS"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="relative mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-medium text-accent-deep transition-colors hover:text-foreground"
               >
                 Read more

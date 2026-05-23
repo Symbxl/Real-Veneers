@@ -41,7 +41,7 @@ export default function RealSection() {
   return (
     <section ref={ref} className="relative h-[120vh] md:h-[170vh] bg-white">
       <div className="sticky top-0 flex h-screen flex-col items-center justify-center px-6 overflow-hidden">
-        <h2 className="z-40 flex justify-center gap-x-[0.5em] whitespace-nowrap font-display text-[clamp(1.25rem,6.2vw,6rem)] leading-[1] tracking-tight text-center">
+        <h2 className="z-40 flex justify-center gap-x-[0.5em] whitespace-nowrap font-display text-[clamp(2.25rem,6.2vw,6rem)] leading-[1] tracking-tight text-center">
           {WORDS.map((word, i) => (
             <Word
               key={word}
