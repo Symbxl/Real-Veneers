@@ -41,13 +41,18 @@ export function GoogleG({ size = 18 }: { size?: number }) {
  */
 export default function GoogleRating() {
   return (
-    <div className="inline-flex items-center gap-3 rounded-full border border-line bg-surface/70 backdrop-blur px-4 py-2">
+    <a
+      href="https://share.google/iHBs3SSjTtufCv9cv"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-3 rounded-full border border-line bg-surface/70 backdrop-blur px-4 py-2 transition-colors hover:bg-accent-soft/50"
+    >
       <GoogleG size={18} />
       <Stars size={13} />
       <span className="text-sm leading-none">
         <span className="font-semibold text-foreground">5.0</span>
-        <span className="text-foreground-muted"> · 200+ reviews</span>
+        <span className="text-foreground-muted"> · 400+ reviews</span>
       </span>
-    </div>
+    </a>
   );
 }

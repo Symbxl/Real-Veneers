@@ -44,10 +44,14 @@ export default function GoogleReviews() {
           <h2 className="mt-9 font-display text-5xl lg:text-7xl leading-[1.04] tracking-tight">
             What Our Clients Say
           </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-foreground-muted">
-            Don&apos;t just take our word for it — hear from the patients whose
-            smiles we&apos;ve transformed.
-          </p>
+          <a
+            href="https://share.google/iHBs3SSjTtufCv9cv"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 text-lg leading-relaxed text-foreground-muted underline underline-offset-4 decoration-line transition-colors hover:text-foreground hover:decoration-accent-deep"
+          >
+            Based on 400+ Reviews
+          </a>
         </div>
 
         <div className="mt-16 grid gap-7 md:grid-cols-3">
@@ -104,11 +108,13 @@ export default function GoogleReviews() {
 
         <div className="mt-14 flex justify-center">
           <a
-            href="#"
+            href="https://share.google/iHBs3SSjTtufCv9cv"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 rounded-full border border-line bg-surface px-7 py-3.5 text-base text-foreground transition-colors hover:bg-accent-soft/50"
           >
             <GoogleG size={20} />
-            View all reviews on Google
+            View all 400+ reviews on Google
           </a>
         </div>
       </div>

@@ -35,7 +35,7 @@ export default function Testimonials() {
               <span className="font-semibold text-foreground">5.0</span>
               <span className="text-foreground-muted">
                 {" "}
-                · 200+ verified Google reviews
+                · 400+ verified Google reviews
               </span>
             </span>
           </div>
