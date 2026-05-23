@@ -2,48 +2,48 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-28 lg:py-36 relative bg-surface text-foreground overflow-hidden"
+      className="relative overflow-hidden bg-surface py-28 lg:py-40 text-foreground"
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Portrait — with an offset accent frame for depth */}
-          <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
-            <div
-              aria-hidden
-              className="absolute inset-0 translate-x-4 translate-y-4 rounded-[1.75rem] border border-accent/50"
-            />
-            <div className="relative aspect-[3/4] rounded-[1.75rem] overflow-hidden ring-1 ring-line bg-background">
+        {/* Centered statement */}
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-accent-deep">
+            <span className="h-px w-8 bg-accent" />
+            An eye for aesthetics
+            <span className="h-px w-8 bg-accent" />
+          </div>
+          <h2 className="mt-7 font-display text-5xl lg:text-7xl leading-[1.03] tracking-tight text-balance">
+            Veneers aren&apos;t a procedure.{" "}
+            <span className="italic text-accent">They&apos;re a portrait.</span>
+          </h2>
+        </div>
+
+        {/* Portrait + body */}
+        <div className="mt-20 grid items-center gap-x-20 gap-y-20 lg:grid-cols-2">
+          {/* Portrait with a floating credential card */}
+          <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] ring-1 ring-line shadow-[0_50px_90px_-45px_rgba(15,15,16,0.5)]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/dr.jpg"
                 alt="Dr. Ryan Trevino"
-                className="absolute inset-0 w-full h-full object-cover object-top"
+                className="absolute inset-0 h-full w-full object-cover object-top"
               />
-              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-foreground/85 via-foreground/25 to-transparent pointer-events-none" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="text-[11px] tracking-[0.22em] uppercase text-white/65">
-                  Founder &amp; Lead Clinician
-                </div>
-                <div className="mt-1.5 font-display text-3xl text-white">
-                  Dr. Ryan Trevino
-                </div>
+            </div>
+            <div className="absolute -bottom-6 left-6 rounded-2xl bg-surface px-6 py-5 ring-1 ring-line shadow-[0_24px_50px_-24px_rgba(15,15,16,0.45)] sm:left-8">
+              <div className="h-px w-8 bg-accent" />
+              <div className="mt-3 font-display text-2xl leading-none">
+                Dr. Ryan Trevino
+              </div>
+              <div className="mt-2 text-[11px] uppercase tracking-[0.2em] text-foreground-muted">
+                Founder &amp; Lead Clinician
               </div>
             </div>
           </div>
 
-          {/* Text */}
+          {/* Body */}
           <div>
-            <div className="flex items-center gap-3 text-xs tracking-[0.22em] uppercase text-accent-deep">
-              <span className="h-px w-8 bg-accent" />
-              An eye for aesthetics
-            </div>
-            <h2 className="mt-6 font-display text-5xl lg:text-6xl leading-[1.02] tracking-tight text-balance">
-              Veneers aren&apos;t a procedure.
-              <br />
-              <span className="italic text-accent-deep">
-                They&apos;re a portrait.
-              </span>
-            </h2>
-            <div className="mt-8 space-y-5 text-lg leading-relaxed text-foreground-muted">
+            <div className="space-y-5 text-lg leading-relaxed text-foreground-muted">
               <p>
                 Dr. Trevino trained as a clinician but thinks like an artist. He
                 studies the way light moves through enamel, how a smile sits
@@ -53,24 +53,18 @@ export default function About() {
               <p>
                 Every smile he designs is built around <em>you</em> — your
                 proportions, your personality, the way your lips move when you
-                laugh. The goal isn&apos;t a Hollywood look. The goal is the
+                laugh. The goal isn&apos;t a Hollywood look. It&apos;s the
                 version of you that already exists in your head.
               </p>
             </div>
 
-            <blockquote className="relative mt-10 pl-9">
-              <span
-                aria-hidden
-                className="absolute left-0 -top-3 font-display text-6xl leading-none text-accent"
-              >
-                &ldquo;
-              </span>
+            <blockquote className="mt-10 border-l-2 border-accent pl-7">
               <p className="font-display text-2xl lg:text-3xl italic leading-snug text-foreground text-balance">
                 Smile makeovers are crafted to look effortlessly natural, even
                 up close. That&apos;s the whole standard.
               </p>
-              <footer className="mt-4 text-sm tracking-[0.18em] uppercase text-foreground-muted">
-                — Dr. Ryan Trevino
+              <footer className="mt-4 text-[11px] uppercase tracking-[0.22em] text-foreground-muted">
+                Dr. Ryan Trevino
               </footer>
             </blockquote>
           </div>
