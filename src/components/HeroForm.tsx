@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import HCaptcha from "./HCaptcha";
 
 export default function HeroForm() {
   const [step, setStep] = useState<0 | 1>(0);
@@ -9,7 +8,6 @@ export default function HeroForm() {
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
   const [consent, setConsent] = useState(true);
-  const [token, setToken] = useState<string | null>(null);
 
   return (
     <div className="relative bg-surface rounded-2xl p-7 lg:p-9 shadow-[0_30px_80px_-20px_rgba(15,15,16,0.22),0_8px_24px_-12px_rgba(15,15,16,0.12)] ring-1 ring-line/60">
@@ -114,8 +112,6 @@ export default function HeroForm() {
           />
         </div>
 
-        <HCaptcha onVerify={setToken} onExpire={() => setToken(null)} />
-
         <label className="flex items-start gap-3 pt-1 cursor-pointer">
           <input
             type="checkbox"
@@ -140,7 +136,7 @@ export default function HeroForm() {
 
         <button
           type="submit"
-          disabled={!consent || !token}
+          disabled={!consent}
           className="w-full inline-flex items-center justify-center gap-3 rounded-xl bg-foreground text-background px-6 py-4 text-base tracking-wide hover:bg-accent-deep transition-colors group disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_12px_30px_-12px_rgba(15,15,16,0.45)]"
         >
           Continue
