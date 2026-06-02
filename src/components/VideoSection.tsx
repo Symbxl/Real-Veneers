@@ -63,19 +63,24 @@ export default function VideoSection() {
               type="button"
               onClick={playWithSound}
               aria-label="Play video with sound"
-              className="group absolute inset-0 grid place-items-center bg-foreground/25 transition-colors hover:bg-foreground/35"
+              className="group absolute inset-0 grid place-items-center bg-gradient-to-t from-foreground/45 via-foreground/15 to-foreground/15 transition-colors hover:from-foreground/55"
             >
-              <span className="inline-flex items-center gap-2.5 rounded-full bg-foreground/90 px-6 py-3.5 text-sm font-medium text-background shadow-xl backdrop-blur transition-transform group-hover:scale-105">
-                <span className="grid h-8 w-8 place-items-center rounded-full bg-background/15">
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    aria-hidden
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
+              <span className="inline-flex items-center gap-3 rounded-full bg-background/95 py-2 pl-2 pr-6 text-sm font-semibold tracking-tight text-foreground shadow-[0_18px_40px_-12px_rgba(15,15,16,0.55)] ring-1 ring-foreground/10 backdrop-blur transition-transform duration-300 ease-out group-hover:scale-[1.04]">
+                <span className="relative grid h-11 w-11 place-items-center">
+                  {/* Pulsing halo behind the play disc */}
+                  <span className="absolute inset-0 rounded-full bg-foreground/20 motion-safe:animate-ping" />
+                  <span className="relative grid h-11 w-11 place-items-center rounded-full bg-foreground text-background shadow-lg transition-transform duration-300 ease-out group-hover:scale-105">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden
+                      className="translate-x-[1px]"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
                 </span>
                 Play video with sound
               </span>

@@ -9,20 +9,20 @@ type Model = {
   caption: string;
   before: string;
   after: string;
+  /** Matched zoom on both layers — adds vertical slack so `afterShift` can nudge without exposing a gap. */
+  zoom?: string;
+  /** Vertical nudge on the AFTER layer only, to line its smile up with the BEFORE photo. */
+  afterShift?: string;
 };
 
 const models: Model[] = [
   {
     name: "Erielle",
     caption: "Full porcelain veneers",
-    before: "/models/erielle-portrait.webp",
-    after: "/models/erielle-2.webp",
-  },
-  {
-    name: "Rich",
-    caption: "Upper & lower veneers",
-    before: "/models/rich-portrait.webp",
-    after: "/models/rich-ba.webp",
+    before: "/models/before1.jpg",
+    after: "/models/after1.jpg",
+    zoom: "scale-[1.06]",
+    afterShift: "translate-y-[2%]",
   },
 ];
 
@@ -44,7 +44,9 @@ function BeforeAfter({ model, index }: { model: Model; index: number }) {
         <img
           src={model.before}
           alt={`${model.name} before`}
-          className="absolute inset-0 h-full w-full object-cover object-top"
+          className={`absolute inset-0 h-full w-full object-cover object-top ${
+            model.zoom ?? ""
+          }`}
         />
         <div className="absolute left-4 top-4 rounded-full border border-background/20 bg-foreground/60 px-3 py-1.5 text-[10px] uppercase tracking-[0.3em] text-background backdrop-blur">
           Before
@@ -58,7 +60,9 @@ function BeforeAfter({ model, index }: { model: Model; index: number }) {
           <img
             src={model.after}
             alt={`${model.name} after`}
-            className="absolute inset-0 h-full w-full object-cover object-top"
+            className={`absolute inset-0 h-full w-full object-cover object-top ${
+              model.zoom ?? ""
+            } ${model.afterShift ?? ""}`}
           />
           <div className="absolute right-4 top-4 rounded-full border border-accent/40 bg-background/90 px-3 py-1.5 text-[10px] uppercase tracking-[0.3em] text-foreground backdrop-blur">
             After
@@ -90,8 +94,7 @@ function BeforeAfter({ model, index }: { model: Model; index: number }) {
 
       <figcaption className="mt-5 flex items-start justify-between gap-4">
         <div>
-          <div className="font-display text-2xl">{model.name}</div>
-          <div className="mt-1 text-xs uppercase tracking-[0.18em] text-foreground-muted">
+          <div className="text-xs uppercase tracking-[0.18em] text-foreground-muted">
             {model.caption}
           </div>
         </div>
@@ -109,14 +112,14 @@ export default function Portfolio() {
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <div className="mb-16 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <h2 className="font-display text-5xl lg:text-6xl leading-[1.02] tracking-tight text-balance">
-            Meet our <span className="italic">models.</span>
+            See the <span className="italic text-accent">transformation.</span>
           </h2>
           <p className="max-w-md text-foreground-muted">
-            Drag the slider on each portrait to see the transformation.
+            Drag the slider on each portrait to reveal the before and after.
           </p>
         </div>
 
-        <div className="grid gap-x-8 gap-y-14 sm:grid-cols-2">
+        <div className="mx-auto grid max-w-3xl gap-y-14">
           {models.map((m, i) => (
             <BeforeAfter key={m.name} model={m} index={i} />
           ))}

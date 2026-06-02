@@ -4,9 +4,22 @@ import GoogleRating from "./GoogleRating";
 export default function Hero() {
   return (
     <section className="relative overflow-hidden min-h-screen flex items-center pt-32 pb-24 lg:pt-40 lg:pb-32 bg-white">
-      <div className="absolute inset-0 -z-10 bg-white" />
+      {/* Warm ambient depth — sits behind the grid */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-40 -top-36 h-[38rem] w-[38rem] rounded-full bg-accent-soft/50 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 45% at 18% 18%, rgba(184,153,104,0.12) 0%, transparent 58%), radial-gradient(ellipse 55% 60% at 88% 90%, rgba(184,153,104,0.08) 0%, transparent 60%)",
+        }}
+      />
+      <div aria-hidden className="grain pointer-events-none absolute inset-0" />
 
-      <div className="mx-auto max-w-7xl px-6 sm:px-10">
+      <div className="relative mx-auto max-w-7xl px-6 sm:px-10">
         <div className="grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-center">
           <div className="animate-fade-up">
             <div className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/60 backdrop-blur px-4 py-1.5 text-xs tracking-[0.18em] uppercase text-foreground-muted">
@@ -25,29 +38,18 @@ export default function Hero() {
               exceptional eye for aesthetics
             </p>
 
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-foreground-muted/90 text-balance">
+              We don&rsquo;t dabble in veneers — it&rsquo;s all we design, every
+              single day.
+            </p>
+
             <div className="mt-9">
               <GoogleRating />
-            </div>
-
-            <div className="mt-10 grid grid-cols-2 gap-8 max-w-lg">
-              {[
-                { v: "500+", l: "Smiles transformed" },
-                { v: "100%", l: "In-house crafted" },
-              ].map((s) => (
-                <div key={s.l}>
-                  <div className="font-display text-4xl text-foreground">
-                    {s.v}
-                  </div>
-                  <div className="mt-1 text-xs uppercase tracking-[0.15em] text-foreground-muted">
-                    {s.l}
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
 
           <div
-            className="animate-fade-up lg:pl-4"
+            className="relative animate-fade-up lg:pl-4"
             style={{ animationDelay: "0.15s" }}
           >
             <HeroForm />

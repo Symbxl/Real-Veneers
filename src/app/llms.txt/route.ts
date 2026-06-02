@@ -56,10 +56,10 @@ export function GET() {
     `- [Portfolio](${SITE_URL}/portfolio) — before/after cases by Dr. Trevino`
   );
   lines.push(
-    `- [About Dr. Trevino](${SITE_URL}/about) — credentials, philosophy, bio`
+    `- [Meet the team](${SITE_URL}/meet-the-team) — the team and our welcoming environment`
   );
   lines.push(
-    `- [About the practice](${SITE_URL}/about-the-practice) — studio details and stats`
+    `- [About the practice](${SITE_URL}/about) — studio details and stats`
   );
   lines.push(
     `- [Blog](${SITE_URL}/blog) — patient-education articles on veneers`

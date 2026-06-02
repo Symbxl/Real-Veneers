@@ -29,8 +29,8 @@ const reviews = [
 
 export default function GoogleReviews() {
   return (
-    <section className="bg-background py-28 lg:py-40">
-      <div className="mx-auto max-w-7xl px-6 sm:px-10">
+    <section className="relative overflow-hidden bg-background py-28 lg:py-40">
+      <div className="relative mx-auto max-w-7xl px-6 sm:px-10">
         <div className="flex flex-col items-center text-center">
           <div className="inline-flex items-center gap-2.5 rounded-full border border-line bg-surface px-6 py-2.5 shadow-[0_1px_0_rgba(0,0,0,0.02)]">
             <GoogleG size={22} />
@@ -44,6 +44,10 @@ export default function GoogleReviews() {
           <h2 className="mt-9 font-display text-5xl lg:text-7xl leading-[1.04] tracking-tight">
             What Our Clients Say
           </h2>
+          <span
+            aria-hidden
+            className="mt-7 block h-px w-16 bg-gradient-to-r from-transparent via-line to-transparent"
+          />
           <a
             href="https://share.google/iHBs3SSjTtufCv9cv"
             target="_blank"
@@ -58,8 +62,16 @@ export default function GoogleReviews() {
           {reviews.map((r) => (
             <figure
               key={r.name}
-              className="group relative flex flex-col rounded-3xl bg-white p-9 lg:p-10 ring-1 ring-line/70 shadow-[0_1px_2px_rgba(15,15,16,0.04),0_14px_36px_-18px_rgba(15,15,16,0.14)] transition-all duration-300 hover:-translate-y-1.5 hover:ring-accent/40 hover:shadow-[0_1px_2px_rgba(15,15,16,0.04),0_30px_56px_-22px_rgba(15,15,16,0.26)]"
+              className="group relative flex flex-col overflow-hidden rounded-3xl bg-white p-9 lg:p-10 ring-1 ring-line/70 shadow-[0_1px_2px_rgba(15,15,16,0.04),0_14px_36px_-18px_rgba(15,15,16,0.14)] transition-all duration-300 hover:-translate-y-1.5 hover:ring-accent/40 hover:shadow-[0_1px_2px_rgba(15,15,16,0.04),0_30px_56px_-22px_rgba(15,15,16,0.26)]"
             >
+              {/* Decorative serif quotation glyph. */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -top-6 right-5 select-none font-display text-[8rem] leading-none text-foreground/[0.06] transition-colors duration-300 group-hover:text-foreground/10"
+              >
+                &ldquo;
+              </span>
+
               <div className="relative flex items-center justify-between">
                 <Stars size={20} />
                 <GoogleG size={26} />

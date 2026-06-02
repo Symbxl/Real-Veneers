@@ -3,7 +3,6 @@ import Link from "next/link";
 
 const photos = [
   { src: "/exec.webp", width: 1500, height: 2249, hideOnMobile: false },
-  { src: "/portfolio/p06.webp", width: 900, height: 1200, hideOnMobile: true },
 ];
 
 export default function PortfolioShowcase() {
