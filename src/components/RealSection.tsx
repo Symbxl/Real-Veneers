@@ -67,15 +67,9 @@ export default function RealSection() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-white py-24 sm:py-32">
+    <section className="relative overflow-hidden bg-accent-soft/30 py-24 sm:py-32">
       {/* Subtle film grain for depth */}
       <div className="grain pointer-events-none absolute inset-0" />
-
-      {/* Warm ambient glow behind the video — desktop only, keeps mobile flat */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute right-[-6rem] top-1/2 hidden h-[36rem] w-[36rem] -translate-y-1/2 rounded-full bg-accent-soft/40 blur-3xl lg:block"
-      />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 sm:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         {/* ---------- Copy (desktop only) — supporting context beside the video ---------- */}
@@ -85,10 +79,10 @@ export default function RealSection() {
             whileInView="show"
             viewport={viewport}
             variants={reveal}
-            className="flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-accent-deep"
+            className="flex items-center gap-4 text-xs uppercase tracking-[0.34em] text-accent-deep"
           >
-            <span className="h-px w-10 bg-accent" />
-            The difference
+            <span aria-hidden className="h-px w-12 bg-accent" />
+            The RealVeneers difference
           </motion.div>
 
           <motion.h2
@@ -97,11 +91,9 @@ export default function RealSection() {
             viewport={viewport}
             variants={reveal}
             custom={1}
-            className="mt-6 font-display text-[clamp(2.5rem,4.2vw,3.85rem)] leading-[1.0] tracking-tight"
+            className="mt-7 font-display text-[clamp(2.85rem,4.8vw,4.5rem)] font-normal leading-[0.96] tracking-[0.05em] text-accent-deep"
           >
-            Veneers should
-            <br />
-            look <span className="italic text-accent-deep">real.</span>
+            VENEERS
           </motion.h2>
 
           <motion.p
@@ -110,14 +102,40 @@ export default function RealSection() {
             viewport={viewport}
             variants={reveal}
             custom={2}
-            className="mt-6 max-w-md text-lg leading-relaxed text-foreground-muted text-balance"
+            className="mt-3 text-sm uppercase tracking-[0.28em] text-foreground-muted"
+          >
+            That{" "}
+            <span className="font-display lowercase italic tracking-normal text-accent-deep">
+              feel
+            </span>{" "}
+            like your own
+          </motion.p>
+
+          <motion.p
+            initial="hidden"
+            whileInView="show"
+            viewport={viewport}
+            variants={reveal}
+            custom={3}
+            className="mt-9 max-w-md font-display text-[1.7rem] leading-snug text-foreground text-balance"
+          >
+            Beautiful is the easy part &mdash; we obsess over believable.
+          </motion.p>
+
+          <motion.p
+            initial="hidden"
+            whileInView="show"
+            viewport={viewport}
+            variants={reveal}
+            custom={4}
+            className="mt-5 max-w-md text-[15px] leading-relaxed text-foreground-muted"
           >
             No bulky, opaque &ldquo;Hollywood&rdquo; blocks. Every smile is
             hand-designed to match your face, your bite, and the way light moves
-            through natural enamel — so the only person who knows is you.
+            through natural enamel &mdash; so the only person who knows is you.
           </motion.p>
 
-          <ul className="mt-9 max-w-md divide-y divide-line border-y border-line">
+          <ul className="mt-9 max-w-md space-y-4">
             {FEATURES.map((f, i) => (
               <motion.li
                 key={f.title}
@@ -125,32 +143,18 @@ export default function RealSection() {
                 whileInView="show"
                 viewport={viewport}
                 variants={reveal}
-                custom={3 + i}
-                className="flex gap-4 py-4"
+                custom={5 + i}
+                className="flex gap-3.5 text-[15px] leading-relaxed text-foreground-muted"
               >
-                <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent-soft text-accent-deep ring-1 ring-accent/30">
-                  <svg
-                    width="13"
-                    height="13"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden
-                  >
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
+                <span
+                  aria-hidden
+                  className="mt-[0.6em] h-px w-5 shrink-0 bg-accent"
+                />
+                <span>
+                  <span className="font-medium text-foreground">{f.title}</span>
+                  {" — "}
+                  {f.body}
                 </span>
-                <div>
-                  <div className="font-display text-lg tracking-tight">
-                    {f.title}
-                  </div>
-                  <div className="mt-0.5 text-[15px] leading-relaxed text-foreground-muted">
-                    {f.body}
-                  </div>
-                </div>
               </motion.li>
             ))}
           </ul>
@@ -161,28 +165,30 @@ export default function RealSection() {
             whileInView="show"
             viewport={viewport}
             variants={reveal}
-            custom={6}
-            className="mt-10 flex flex-col items-start gap-5"
+            custom={8}
+            className="mt-11 flex flex-col items-start gap-6"
           >
             <a
               href="#contact"
-              className="group inline-flex items-center gap-3 rounded-xl bg-foreground px-7 py-4 text-base font-medium tracking-wide text-background shadow-[0_18px_40px_-16px_rgba(15,15,16,0.5)] transition-colors hover:bg-accent-deep"
+              className="group inline-flex items-center gap-3 border border-accent-deep/60 px-8 py-4 text-xs uppercase tracking-[0.24em] text-accent-deep transition-colors duration-300 hover:border-accent-deep hover:bg-accent-deep hover:text-background"
             >
               Book your free consultation
-              <span className="transition-transform duration-300 group-hover:translate-x-0.5">
-                →
+              <span
+                aria-hidden
+                className="transition-transform duration-300 group-hover:translate-x-0.5"
+              >
+                &rarr;
               </span>
             </a>
 
             <div className="flex items-center gap-3 text-sm text-foreground-muted">
-              <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/70 px-3 py-1.5">
+              <span className="inline-flex items-center gap-2">
                 <GoogleG size={16} />
                 <Stars size={12} />
                 <span className="font-semibold text-foreground">5.0</span>
               </span>
-              <span>
-                Free &amp; no obligation · 400+ five-star reviews
-              </span>
+              <span aria-hidden className="h-3.5 w-px bg-line" />
+              <span>400+ five-star reviews</span>
             </div>
           </motion.div>
         </div>
@@ -194,14 +200,20 @@ export default function RealSection() {
           viewport={viewport}
           variants={reveal}
           custom={1}
-          className="mx-auto w-full max-w-md lg:max-w-none"
+          className="relative mx-auto w-full max-w-md lg:max-w-[440px]"
         >
+          {/* Flat offset accent panel — desktop only, sits behind the card for depth */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -bottom-5 -right-5 -top-5 left-12 hidden rounded-[1.75rem] bg-accent-soft ring-1 ring-accent/30 lg:block"
+          />
+
           {/* Mobile keeps its own heading; on desktop the left column carries it */}
           <h2 className="mb-6 text-center font-display text-3xl leading-[1.05] tracking-tight sm:text-4xl lg:hidden">
             About our trial smile
           </h2>
 
-          <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl ring-1 ring-line shadow-[0_40px_90px_-40px_rgba(15,15,16,0.45)] lg:max-w-[440px] lg:rounded-[1.75rem] lg:shadow-[0_55px_130px_-45px_rgba(15,15,16,0.55)]">
+          <div className="relative z-10 mx-auto w-full max-w-sm overflow-hidden rounded-2xl ring-1 ring-line shadow-[0_40px_90px_-40px_rgba(15,15,16,0.45)] lg:max-w-[440px] lg:rounded-[1.75rem] lg:shadow-[0_55px_130px_-45px_rgba(15,15,16,0.55)]">
             {/* Frosted caption — desktop only, frames the clip like a player */}
             <span className="pointer-events-none absolute left-4 top-4 z-20 hidden items-center gap-2 rounded-full bg-background/90 px-3.5 py-1.5 text-xs font-medium tracking-tight text-foreground shadow-[0_8px_24px_-10px_rgba(15,15,16,0.5)] ring-1 ring-foreground/10 backdrop-blur lg:inline-flex">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
