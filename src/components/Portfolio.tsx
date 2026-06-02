@@ -22,7 +22,6 @@ const models: Model[] = [
     before: "/models/before1.jpg",
     after: "/models/after1.jpg",
     zoom: "scale-[1.06]",
-    afterShift: "translate-y-[2%]",
   },
 ];
 
