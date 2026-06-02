@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion, type Variants } from "motion/react";
 
 type Card = {
@@ -18,71 +17,52 @@ type Card = {
 // Mixed portrait / square / landscape crops with alternating vertical offsets.
 const CARDS: Card[] = [
   {
-    src: "/models/erielle-portrait.webp",
+    src: "/models/erielle-1.webp",
     alt: "Portrait of a RealVeneers patient",
     width: "w-44 sm:w-52",
     height: "h-80 sm:h-96",
     offset: "translate-y-4 sm:translate-y-8",
-  },
-  {
-    src: "/portfolio/p05.webp",
-    alt: "Close-up of a crafted smile",
-    width: "w-72 sm:w-80",
-    height: "h-56 sm:h-64",
-    offset: "-translate-y-2 sm:-translate-y-4",
-  },
-  {
-    src: "/portfolio/p08.webp",
-    alt: "A bright, refined smile",
-    width: "w-52 sm:w-60",
-    height: "h-64 sm:h-72",
-    offset: "translate-y-3 sm:translate-y-6",
   },
   {
     src: "/models/rich-1.webp",
     alt: "A RealVeneers patient smiling",
-    width: "w-64 sm:w-72",
+    width: "w-52 sm:w-60",
     height: "h-72 sm:h-80",
-    offset: "-translate-y-3 sm:-translate-y-6",  },
+    offset: "translate-y-3 sm:translate-y-6",
+  },
   {
-    src: "/portfolio/p11.webp",
-    alt: "Detail of a natural veneer finish",
-    width: "w-48 sm:w-56",
+    src: "/models/after1.jpg",
+    alt: "A finished smile after treatment",
+    width: "w-72 sm:w-[22rem]",
+    height: "h-52 sm:h-60",
+    offset: "-translate-y-3 sm:-translate-y-6",
+  },
+  {
+    src: "/models/after.jpg",
+    alt: "Close-up of a completed veneer smile",
+    width: "w-56 sm:w-64",
     height: "h-60 sm:h-72",
     offset: "translate-y-2 sm:translate-y-4",
   },
   {
-    src: "/portfolio/p14.webp",
-    alt: "A confident smile after treatment",
-    width: "w-72 sm:w-[22rem]",
-    height: "h-52 sm:h-60",
-    offset: "translate-y-4 sm:translate-y-8",
-  },
-  {
-    src: "/models/erielle-2.webp",
-    alt: "Editorial portrait of a patient",
-    width: "w-44 sm:w-52",
-    height: "h-80 sm:h-96",
+    src: "/consult2.jpg",
+    alt: "A patient consultation at RealVeneers",
+    width: "w-72 sm:w-80",
+    height: "h-56 sm:h-64",
     offset: "-translate-y-1 sm:-translate-y-2",
   },
   {
-    src: "/portfolio/p03.webp",
-    alt: "A warm, natural smile",
-    width: "w-60 sm:w-72",
-    height: "h-64 sm:h-72",
-    offset: "translate-y-3 sm:translate-y-6",  },
-  {
-    src: "/models/rich-portrait.webp",
-    alt: "Portrait of a RealVeneers patient",
-    width: "w-48 sm:w-56",
-    height: "h-72 sm:h-[22rem]",
-    offset: "-translate-y-2 sm:-translate-y-4",
+    src: "/lab-poster.jpg",
+    alt: "Inside the RealVeneers dental lab",
+    width: "w-72 sm:w-[22rem]",
+    height: "h-52 sm:h-60",
+    offset: "translate-y-3 sm:translate-y-6",
   },
   {
-    src: "/portfolio/p16.webp",
-    alt: "A polished, lifelike smile",
-    width: "w-72 sm:w-80",
-    height: "h-56 sm:h-64",
+    src: "/milled.jpg",
+    alt: "Freshly milled veneer restorations",
+    width: "w-60 sm:w-72",
+    height: "h-64 sm:h-72",
     offset: "translate-y-1 sm:translate-y-2",
   },
 ];
@@ -160,20 +140,11 @@ export default function CustomerSlideshow() {
         </div>
       </motion.div>
 
-      {/* Portfolio CTA — title + button moved here from the standalone showcase */}
+      {/* Section title — the View Gallery CTA now lives under the Portfolio grid */}
       <div className="mx-auto mt-14 flex max-w-7xl flex-col items-center px-6 text-center sm:mt-16 sm:px-10">
         <h2 className="font-display text-4xl leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl">
           Meet our <span className="italic">models.</span>
         </h2>
-        <Link
-          href="/portfolio"
-          className="group mt-8 inline-flex items-center gap-3 rounded-full bg-foreground pl-7 pr-3 py-3 text-xs font-medium uppercase tracking-[0.18em] text-background transition-colors hover:bg-accent-deep"
-        >
-          View Gallery
-          <span className="grid h-8 w-8 place-items-center rounded-full bg-background/15 transition-transform group-hover:translate-x-0.5">
-            →
-          </span>
-        </Link>
       </div>
 
       <style>{`

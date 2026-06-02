@@ -6,7 +6,6 @@ import Link from "next/link";
 
 type Model = {
   name: string;
-  caption: string;
   before: string;
   after: string;
   /** Matched zoom on both layers — adds vertical slack so `afterShift` can nudge without exposing a gap. */
@@ -18,7 +17,6 @@ type Model = {
 const models: Model[] = [
   {
     name: "Erielle",
-    caption: "Full porcelain veneers",
     before: "/models/before1.jpg",
     after: "/models/after1.jpg",
     zoom: "scale-[1.06]",
@@ -26,7 +24,7 @@ const models: Model[] = [
 ];
 
 // Drag-to-reveal before/after comparison.
-function BeforeAfter({ model, index }: { model: Model; index: number }) {
+function BeforeAfter({ model }: { model: Model }) {
   const [pos, setPos] = useState(50);
 
   return (
@@ -90,17 +88,6 @@ function BeforeAfter({ model, index }: { model: Model; index: number }) {
           </div>
         </div>
       </div>
-
-      <figcaption className="mt-5 flex items-start justify-between gap-4">
-        <div>
-          <div className="text-xs uppercase tracking-[0.18em] text-foreground-muted">
-            {model.caption}
-          </div>
-        </div>
-        <div className="font-display text-2xl leading-none text-accent">
-          0{index + 1}
-        </div>
-      </figcaption>
     </figure>
   );
 }
@@ -119,17 +106,17 @@ export default function Portfolio() {
         </div>
 
         <div className="mx-auto grid max-w-3xl gap-y-14">
-          {models.map((m, i) => (
-            <BeforeAfter key={m.name} model={m} index={i} />
+          {models.map((m) => (
+            <BeforeAfter key={m.name} model={m} />
           ))}
         </div>
 
-        <div className="mt-16 lg:mt-20">
+        <div className="mt-16 flex justify-center lg:mt-20">
           <Link
             href="/portfolio"
             className="group inline-flex items-center gap-3 rounded-full bg-foreground pl-7 pr-3 py-3 text-xs font-medium uppercase tracking-[0.18em] text-background transition-colors hover:bg-accent-deep"
           >
-            View full gallery
+            View Gallery
             <span className="grid h-8 w-8 place-items-center rounded-full bg-background/15 transition-transform group-hover:translate-x-0.5">
               →
             </span>

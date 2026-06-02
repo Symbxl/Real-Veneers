@@ -70,27 +70,15 @@ export default function RealSection() {
       {/* Subtle film grain for depth */}
       <div className="grain pointer-events-none absolute inset-0" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 sm:px-10 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
-        {/* ---------- Copy (desktop only) ----------
-            Deep-navy panel: a cool counterpoint to the site's warm gold palette,
-            letting the gold accents read as luxe rather than yellow. */}
-        <div className="relative hidden overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#3a4d78] via-[#2e3f63] to-[#26314f] p-11 ring-1 ring-white/10 shadow-[0_50px_110px_-45px_rgba(33,44,74,0.7)] lg:block lg:p-14">
-          {/* Soft warm glow + gold top hairline tie the panel back to the brand. */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-accent/15 blur-3xl"
-          />
-          <span
-            aria-hidden
-            className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"
-          />
-
+      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 sm:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+        {/* ---------- Copy (desktop only) — supporting context beside the video ---------- */}
+        <div className="hidden lg:block">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={viewport}
             variants={reveal}
-            className="relative flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-accent"
+            className="flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-accent-deep"
           >
             <span className="h-px w-10 bg-accent" />
             The difference
@@ -102,11 +90,11 @@ export default function RealSection() {
             viewport={viewport}
             variants={reveal}
             custom={1}
-            className="relative mt-6 font-display text-[clamp(2.75rem,5.5vw,4.75rem)] leading-[0.98] tracking-tight text-white"
+            className="mt-6 font-display text-[clamp(2.5rem,4.2vw,3.85rem)] leading-[1.0] tracking-tight"
           >
             Veneers should
             <br />
-            look <span className="italic text-accent">real.</span>
+            look <span className="italic text-accent-deep">real.</span>
           </motion.h2>
 
           <motion.p
@@ -115,14 +103,14 @@ export default function RealSection() {
             viewport={viewport}
             variants={reveal}
             custom={2}
-            className="relative mt-7 max-w-xl text-lg leading-relaxed text-white/70 text-balance"
+            className="mt-6 max-w-md text-lg leading-relaxed text-foreground-muted text-balance"
           >
             No bulky, opaque &ldquo;Hollywood&rdquo; blocks. Every smile is
             hand-designed to match your face, your bite, and the way light moves
             through natural enamel — so the only person who knows is you.
           </motion.p>
 
-          <ul className="relative mt-10 space-y-5">
+          <ul className="mt-9 max-w-md divide-y divide-line border-y border-line">
             {FEATURES.map((f, i) => (
               <motion.li
                 key={f.title}
@@ -131,9 +119,9 @@ export default function RealSection() {
                 viewport={viewport}
                 variants={reveal}
                 custom={3 + i}
-                className="flex gap-4"
+                className="flex gap-4 py-4"
               >
-                <span className="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent text-[#26314f] ring-1 ring-accent/40">
+                <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent-soft text-accent-deep ring-1 ring-accent/30">
                   <svg
                     width="13"
                     height="13"
@@ -149,10 +137,10 @@ export default function RealSection() {
                   </svg>
                 </span>
                 <div>
-                  <div className="font-display text-xl tracking-tight text-white">
+                  <div className="font-display text-lg tracking-tight">
                     {f.title}
                   </div>
-                  <div className="mt-1 text-base leading-relaxed text-white/65">
+                  <div className="mt-0.5 text-[15px] leading-relaxed text-foreground-muted">
                     {f.body}
                   </div>
                 </div>
@@ -170,11 +158,11 @@ export default function RealSection() {
           custom={1}
           className="mx-auto w-full max-w-md lg:max-w-none"
         >
-          <h2 className="mb-6 text-center font-display text-3xl leading-[1.05] tracking-tight sm:text-4xl lg:mb-8 lg:text-5xl">
+          <h2 className="mb-6 text-center font-display text-3xl leading-[1.05] tracking-tight sm:text-4xl lg:mb-8">
             About our trial smile
           </h2>
 
-          <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl ring-1 ring-line shadow-[0_40px_90px_-40px_rgba(15,15,16,0.45)]">
+          <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl ring-1 ring-line shadow-[0_40px_90px_-40px_rgba(15,15,16,0.45)] lg:max-w-[440px] lg:rounded-[1.75rem] lg:shadow-[0_55px_130px_-45px_rgba(15,15,16,0.55)]">
             <video
               ref={videoRef}
               src="/stepone.mov"
