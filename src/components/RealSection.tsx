@@ -102,37 +102,9 @@ export default function RealSection() {
             viewport={viewport}
             variants={reveal}
             custom={2}
-            className="mt-3 text-sm uppercase tracking-[0.28em] text-foreground-muted"
-          >
-            That{" "}
-            <span className="font-display lowercase italic tracking-normal text-accent-deep">
-              feel
-            </span>{" "}
-            like your own
-          </motion.p>
-
-          <motion.p
-            initial="hidden"
-            whileInView="show"
-            viewport={viewport}
-            variants={reveal}
-            custom={3}
             className="mt-9 max-w-md font-display text-[1.7rem] leading-snug text-foreground text-balance"
           >
             Beautiful is the easy part &mdash; we obsess over believable.
-          </motion.p>
-
-          <motion.p
-            initial="hidden"
-            whileInView="show"
-            viewport={viewport}
-            variants={reveal}
-            custom={4}
-            className="mt-5 max-w-md text-[15px] leading-relaxed text-foreground-muted"
-          >
-            No bulky, opaque &ldquo;Hollywood&rdquo; blocks. Every smile is
-            hand-designed to match your face, your bite, and the way light moves
-            through natural enamel &mdash; so the only person who knows is you.
           </motion.p>
 
           <ul className="mt-9 max-w-md space-y-4">
