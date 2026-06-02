@@ -71,14 +71,26 @@ export default function RealSection() {
       <div className="grain pointer-events-none absolute inset-0" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 sm:px-10 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
-        {/* ---------- Copy (desktop only) ---------- */}
-        <div className="hidden lg:block">
+        {/* ---------- Copy (desktop only) ----------
+            Deep-navy panel: a cool counterpoint to the site's warm gold palette,
+            letting the gold accents read as luxe rather than yellow. */}
+        <div className="relative hidden overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#3a4d78] via-[#2e3f63] to-[#26314f] p-11 ring-1 ring-white/10 shadow-[0_50px_110px_-45px_rgba(33,44,74,0.7)] lg:block lg:p-14">
+          {/* Soft warm glow + gold top hairline tie the panel back to the brand. */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-accent/15 blur-3xl"
+          />
+          <span
+            aria-hidden
+            className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"
+          />
+
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={viewport}
             variants={reveal}
-            className="flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-accent-deep"
+            className="relative flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-accent"
           >
             <span className="h-px w-10 bg-accent" />
             The difference
@@ -90,11 +102,11 @@ export default function RealSection() {
             viewport={viewport}
             variants={reveal}
             custom={1}
-            className="mt-6 font-display text-[clamp(2.75rem,5.5vw,4.75rem)] leading-[0.98] tracking-tight"
+            className="relative mt-6 font-display text-[clamp(2.75rem,5.5vw,4.75rem)] leading-[0.98] tracking-tight text-white"
           >
             Veneers should
             <br />
-            look <span className="italic text-accent-deep">real.</span>
+            look <span className="italic text-accent">real.</span>
           </motion.h2>
 
           <motion.p
@@ -103,14 +115,14 @@ export default function RealSection() {
             viewport={viewport}
             variants={reveal}
             custom={2}
-            className="mt-7 max-w-xl text-lg leading-relaxed text-foreground-muted text-balance"
+            className="relative mt-7 max-w-xl text-lg leading-relaxed text-white/70 text-balance"
           >
             No bulky, opaque &ldquo;Hollywood&rdquo; blocks. Every smile is
             hand-designed to match your face, your bite, and the way light moves
             through natural enamel — so the only person who knows is you.
           </motion.p>
 
-          <ul className="mt-10 space-y-5">
+          <ul className="relative mt-10 space-y-5">
             {FEATURES.map((f, i) => (
               <motion.li
                 key={f.title}
@@ -121,7 +133,7 @@ export default function RealSection() {
                 custom={3 + i}
                 className="flex gap-4"
               >
-                <span className="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent-soft text-accent-deep ring-1 ring-accent/30">
+                <span className="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent text-[#26314f] ring-1 ring-accent/40">
                   <svg
                     width="13"
                     height="13"
@@ -137,10 +149,10 @@ export default function RealSection() {
                   </svg>
                 </span>
                 <div>
-                  <div className="font-display text-xl tracking-tight">
+                  <div className="font-display text-xl tracking-tight text-white">
                     {f.title}
                   </div>
-                  <div className="mt-1 text-base leading-relaxed text-foreground-muted">
+                  <div className="mt-1 text-base leading-relaxed text-white/65">
                     {f.body}
                   </div>
                 </div>
