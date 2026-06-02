@@ -84,7 +84,8 @@ export default function TeamCarousel() {
           }}
           onTransitionEnd={handleRest}
         >
-          {slides.map((m, i) => {
+          {slides.map((_, i) => {
+            const m = team[i % total];
             const visible = i >= index && i < index + perView;
             return (
               <div
