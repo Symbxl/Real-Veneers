@@ -111,10 +111,13 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <div className="mt-16 flex justify-center lg:mt-20">
+        <div className="mt-16 flex flex-col items-center text-center lg:mt-20">
+          <h2 className="font-display text-4xl leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl">
+            Meet our <span className="italic">models.</span>
+          </h2>
           <Link
             href="/portfolio"
-            className="group inline-flex items-center gap-3 rounded-full bg-foreground pl-7 pr-3 py-3 text-xs font-medium uppercase tracking-[0.18em] text-background transition-colors hover:bg-accent-deep"
+            className="group mt-8 inline-flex items-center gap-3 rounded-full bg-foreground pl-7 pr-3 py-3 text-xs font-medium uppercase tracking-[0.18em] text-background transition-colors hover:bg-accent-deep"
           >
             View Gallery
             <span className="grid h-8 w-8 place-items-center rounded-full bg-background/15 transition-transform group-hover:translate-x-0.5">

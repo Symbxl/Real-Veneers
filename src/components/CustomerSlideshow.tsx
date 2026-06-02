@@ -97,6 +97,33 @@ const bandReveal: Variants = {
 export default function CustomerSlideshow() {
   return (
     <section className="relative overflow-hidden bg-white py-20 sm:py-28">
+      {/* ---------- Section intro — about the practice ---------- */}
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-80px" }}
+        variants={bandReveal}
+        className="mx-auto mb-2 flex max-w-3xl flex-col items-center px-6 text-center sm:mb-4 sm:px-10"
+      >
+        <div className="flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-accent-deep">
+          <span className="h-px w-10 bg-accent" />
+          About the practice
+          <span className="h-px w-10 bg-accent" />
+        </div>
+
+        <h2 className="mt-6 font-display text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.04] tracking-tight">
+          Rooted in <span className="italic text-accent-deep">compassion</span>{" "}
+          and craft.
+        </h2>
+
+        <p className="mt-5 max-w-xl text-lg leading-relaxed text-foreground-muted text-balance">
+          These are real RealVeneers patients — never stock photos. Behind every
+          smile is Dr. Trevino, who designs and mills each veneer in-house and
+          treats every patient like family. Here, your comfort, your health, and
+          the way you feel about your smile always come first.
+        </p>
+      </motion.div>
+
       {/* ---------- Full-bleed auto-scrolling rail ----------
           Breaks out of the centered container to true viewport width. The parent
           section is overflow-hidden, so w-screen never produces a horizontal page
@@ -139,13 +166,6 @@ export default function CustomerSlideshow() {
           </div>
         </div>
       </motion.div>
-
-      {/* Section title — the View Gallery CTA now lives under the Portfolio grid */}
-      <div className="mx-auto mt-14 flex max-w-7xl flex-col items-center px-6 text-center sm:mt-16 sm:px-10">
-        <h2 className="font-display text-4xl leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl">
-          Meet our <span className="italic">models.</span>
-        </h2>
-      </div>
 
       <style>{`
         @keyframes customerScroll {

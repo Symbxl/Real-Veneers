@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, type Variants } from "motion/react";
+import { GoogleG, Stars } from "./GoogleRating";
 
 const FEATURES = [
   {
@@ -69,6 +70,12 @@ export default function RealSection() {
     <section className="relative overflow-hidden bg-white py-24 sm:py-32">
       {/* Subtle film grain for depth */}
       <div className="grain pointer-events-none absolute inset-0" />
+
+      {/* Warm ambient glow behind the video — desktop only, keeps mobile flat */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-[-6rem] top-1/2 hidden h-[36rem] w-[36rem] -translate-y-1/2 rounded-full bg-accent-soft/40 blur-3xl lg:block"
+      />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 sm:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         {/* ---------- Copy (desktop only) — supporting context beside the video ---------- */}
@@ -147,6 +154,37 @@ export default function RealSection() {
               </motion.li>
             ))}
           </ul>
+
+          {/* ---------- Conversion: primary CTA + trust (desktop only) ---------- */}
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={viewport}
+            variants={reveal}
+            custom={6}
+            className="mt-10 flex flex-col items-start gap-5"
+          >
+            <a
+              href="#contact"
+              className="group inline-flex items-center gap-3 rounded-xl bg-foreground px-7 py-4 text-base font-medium tracking-wide text-background shadow-[0_18px_40px_-16px_rgba(15,15,16,0.5)] transition-colors hover:bg-accent-deep"
+            >
+              Book your free consultation
+              <span className="transition-transform duration-300 group-hover:translate-x-0.5">
+                →
+              </span>
+            </a>
+
+            <div className="flex items-center gap-3 text-sm text-foreground-muted">
+              <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/70 px-3 py-1.5">
+                <GoogleG size={16} />
+                <Stars size={12} />
+                <span className="font-semibold text-foreground">5.0</span>
+              </span>
+              <span>
+                Free &amp; no obligation · 400+ five-star reviews
+              </span>
+            </div>
+          </motion.div>
         </div>
 
         {/* ---------- About our trial smile (video) ---------- */}
@@ -158,11 +196,17 @@ export default function RealSection() {
           custom={1}
           className="mx-auto w-full max-w-md lg:max-w-none"
         >
-          <h2 className="mb-6 text-center font-display text-3xl leading-[1.05] tracking-tight sm:text-4xl lg:mb-8">
+          {/* Mobile keeps its own heading; on desktop the left column carries it */}
+          <h2 className="mb-6 text-center font-display text-3xl leading-[1.05] tracking-tight sm:text-4xl lg:hidden">
             About our trial smile
           </h2>
 
           <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl ring-1 ring-line shadow-[0_40px_90px_-40px_rgba(15,15,16,0.45)] lg:max-w-[440px] lg:rounded-[1.75rem] lg:shadow-[0_55px_130px_-45px_rgba(15,15,16,0.55)]">
+            {/* Frosted caption — desktop only, frames the clip like a player */}
+            <span className="pointer-events-none absolute left-4 top-4 z-20 hidden items-center gap-2 rounded-full bg-background/90 px-3.5 py-1.5 text-xs font-medium tracking-tight text-foreground shadow-[0_8px_24px_-10px_rgba(15,15,16,0.5)] ring-1 ring-foreground/10 backdrop-blur lg:inline-flex">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              Trial smile preview
+            </span>
             <video
               ref={videoRef}
               src="/stepone.mov"
