@@ -19,50 +19,50 @@ const CARDS: Card[] = [
   {
     src: "/models/erielle-1.webp",
     alt: "Portrait of a RealVeneers patient",
-    width: "w-44 sm:w-52",
-    height: "h-80 sm:h-96",
+    width: "w-52 sm:w-64",
+    height: "h-96 sm:h-[28rem]",
     offset: "translate-y-4 sm:translate-y-8",
   },
   {
     src: "/models/rich-1.webp",
     alt: "A RealVeneers patient smiling",
-    width: "w-52 sm:w-60",
-    height: "h-72 sm:h-80",
+    width: "w-64 sm:w-72",
+    height: "h-80 sm:h-96",
     offset: "translate-y-3 sm:translate-y-6",
   },
   {
     src: "/models/after1.jpg",
     alt: "A finished smile after treatment",
-    width: "w-72 sm:w-[22rem]",
-    height: "h-52 sm:h-60",
+    width: "w-80 sm:w-[26rem]",
+    height: "h-60 sm:h-72",
     offset: "-translate-y-3 sm:-translate-y-6",
   },
   {
     src: "/models/after.jpg",
     alt: "Close-up of a completed veneer smile",
-    width: "w-56 sm:w-64",
-    height: "h-60 sm:h-72",
+    width: "w-64 sm:w-72",
+    height: "h-72 sm:h-80",
     offset: "translate-y-2 sm:translate-y-4",
   },
   {
     src: "/consult2.jpg",
     alt: "A patient consultation at RealVeneers",
-    width: "w-72 sm:w-80",
-    height: "h-56 sm:h-64",
+    width: "w-80 sm:w-[24rem]",
+    height: "h-64 sm:h-72",
     offset: "-translate-y-1 sm:-translate-y-2",
   },
   {
     src: "/lab-poster.jpg",
     alt: "Inside the RealVeneers dental lab",
-    width: "w-72 sm:w-[22rem]",
-    height: "h-52 sm:h-60",
+    width: "w-80 sm:w-[26rem]",
+    height: "h-60 sm:h-72",
     offset: "translate-y-3 sm:translate-y-6",
   },
   {
     src: "/milled.jpg",
     alt: "Freshly milled veneer restorations",
-    width: "w-60 sm:w-72",
-    height: "h-64 sm:h-72",
+    width: "w-72 sm:w-80",
+    height: "h-72 sm:h-96",
     offset: "translate-y-1 sm:translate-y-2",
   },
 ];
@@ -76,7 +76,7 @@ function SlideCard({ card }: { card: Card }) {
         src={card.src}
         alt={card.alt}
         fill
-        sizes="(min-width: 640px) 22rem, 18rem"
+        sizes="(min-width: 640px) 26rem, 20rem"
         className="object-cover transition-transform duration-[1200ms] ease-out group-hover/card:scale-[1.06]"
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-foreground/25 via-transparent to-transparent" />
@@ -103,7 +103,7 @@ export default function CustomerSlideshow() {
         whileInView="show"
         viewport={{ once: true, margin: "-80px" }}
         variants={bandReveal}
-        className="mx-auto mb-2 flex max-w-3xl flex-col items-center px-6 text-center sm:mb-4 sm:px-10"
+        className="mx-auto mb-2 flex max-w-4xl flex-col items-center px-6 text-center sm:mb-4 sm:px-10"
       >
         <div className="flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-accent-deep">
           <span className="h-px w-10 bg-accent" />
@@ -111,12 +111,12 @@ export default function CustomerSlideshow() {
           <span className="h-px w-10 bg-accent" />
         </div>
 
-        <h2 className="mt-6 font-display text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.04] tracking-tight">
+        <h2 className="mt-6 font-display text-[clamp(2.25rem,4.8vw,4.5rem)] leading-[1.03] tracking-tight">
           Rooted in <span className="italic text-accent-deep">compassion</span>{" "}
           and craft.
         </h2>
 
-        <p className="mt-5 max-w-xl text-lg leading-relaxed text-foreground-muted text-balance">
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-foreground-muted text-balance lg:text-xl">
           These are real RealVeneers patients — never stock photos. Behind every
           smile is Dr. Trevino, who designs and mills each veneer in-house and
           treats every patient like family. Here, your comfort, your health, and
