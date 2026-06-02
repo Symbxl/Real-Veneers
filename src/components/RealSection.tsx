@@ -115,7 +115,7 @@ export default function RealSection() {
                 whileInView="show"
                 viewport={viewport}
                 variants={reveal}
-                custom={5 + i}
+                custom={3 + i}
                 className="flex gap-3.5 text-[15px] leading-relaxed text-foreground-muted"
               >
                 <span
@@ -137,7 +137,7 @@ export default function RealSection() {
             whileInView="show"
             viewport={viewport}
             variants={reveal}
-            custom={8}
+            custom={6}
             className="mt-11 flex flex-col items-start gap-6"
           >
             <a

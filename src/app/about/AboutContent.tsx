@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion, type Variants } from "motion/react";
+import { AnimatePresence, motion, type Variants } from "motion/react";
+import TeamCarousel from "@/components/TeamCarousel";
 
 // Shared scroll-in reveal; `custom` index drives the stagger.
 const reveal: Variants = {
@@ -70,10 +72,52 @@ const services = [
   },
 ];
 
-const personal = [
-  "Outside the operatory, Dr. Trevino is happiest outdoors — hiking, biking, and camping with his wife Sierra, their three children, Mateo, Everest, and Elise, and the family husky, Seryn.",
-  "He's also a lifelong musician who plays seven instruments — from drums and piano to guitar, bass, and ukulele — and has been known to play a little for patients right in the chair.",
+// Two founder photos that cross-fade into each other on a timer.
+const founderPhotos = [
+  {
+    src: "/tdg/dr-trevino.jpg",
+    alt: "Dr. Ryan Trevino, founder of Trevino Dental Group and RealVeneers",
+    position: "object-top",
+  },
+  {
+    src: "/tdg/dr-trevino-candid.jpg",
+    alt: "Dr. Ryan Trevino away from the practice",
+    position: "object-center",
+  },
 ];
+
+// Auto-crossfading founder portrait — alternates the two photos every few seconds.
+function FounderPortrait() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(
+      () => setIndex((i) => (i + 1) % founderPhotos.length),
+      5000,
+    );
+    return () => clearInterval(id);
+  }, []);
+
+  const photo = founderPhotos[index];
+
+  return (
+    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl ring-1 ring-line shadow-[0_40px_90px_-50px_rgba(15,15,16,0.45)]">
+      <AnimatePresence>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <motion.img
+          key={photo.src}
+          src={photo.src}
+          alt={photo.alt}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          className={`absolute inset-0 h-full w-full object-cover ${photo.position}`}
+        />
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function AboutContent() {
   return (
@@ -167,12 +211,7 @@ export default function AboutContent() {
               variants={reveal}
               className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/tdg/dr-trevino.jpg"
-                alt="Dr. Ryan Trevino, founder of Trevino Dental Group and RealVeneers"
-                className="aspect-[4/5] w-full rounded-3xl object-cover object-top ring-1 ring-line shadow-[0_40px_90px_-50px_rgba(15,15,16,0.45)]"
-              />
+              <FounderPortrait />
               <div className="absolute -bottom-6 left-6 rounded-2xl bg-surface px-6 py-5 ring-1 ring-line shadow-[0_24px_50px_-24px_rgba(15,15,16,0.45)] sm:left-8">
                 <div className="h-px w-8 bg-accent" />
                 <div className="mt-3 font-display text-2xl leading-none">
@@ -267,6 +306,56 @@ export default function AboutContent() {
         </div>
       </section>
 
+      {/* ---------- The team ---------- */}
+      <section className="border-t border-line py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={viewport}
+            variants={reveal}
+            className="flex flex-col gap-7 sm:flex-row sm:items-end sm:justify-between"
+          >
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-accent-deep">
+                <span className="h-px w-10 bg-accent" />
+                The team
+              </div>
+              <h2 className="mt-6 font-display text-4xl lg:text-6xl leading-[1.02] tracking-tight text-balance">
+                Specialists across{" "}
+                <span className="italic text-accent">every discipline.</span>
+              </h2>
+              <p className="mt-6 text-lg leading-relaxed text-foreground-muted">
+                Dr. Trevino is supported by a full team of dentists,
+                specialists, hygienists, and patient-care staff — so every part
+                of your visit is in expert hands.
+              </p>
+            </div>
+
+            <Link
+              href="/meet-the-team"
+              className="group inline-flex w-fit shrink-0 items-center gap-2.5 rounded-full border border-line bg-background px-6 py-3 text-sm font-medium tracking-wide text-foreground transition-colors hover:bg-accent-soft/60"
+            >
+              Meet the full team
+              <span className="transition-transform group-hover:translate-x-0.5">
+                →
+              </span>
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={viewport}
+            variants={reveal}
+            custom={1}
+            className="mt-14"
+          >
+            <TeamCarousel />
+          </motion.div>
+        </div>
+      </section>
+
       {/* ---------- Philosophy ---------- */}
       <section className="border-y border-line bg-surface py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-6 sm:px-10">
@@ -348,49 +437,6 @@ export default function AboutContent() {
                 </ul>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- Beyond the chair ---------- */}
-      <section className="border-y border-line bg-surface py-24 lg:py-32">
-        <div className="mx-auto max-w-7xl px-6 sm:px-10">
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-20">
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={viewport}
-              variants={reveal}
-            >
-              <div className="flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-accent-deep">
-                <span className="h-px w-10 bg-accent" />
-                Beyond the chair
-              </div>
-              <h2 className="mt-6 font-display text-4xl lg:text-6xl leading-[1.02] tracking-tight text-balance">
-                The person behind the{" "}
-                <span className="italic text-accent">practice.</span>
-              </h2>
-              <div className="mt-7 space-y-5 text-lg leading-relaxed text-foreground-muted">
-                {personal.map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={viewport}
-              variants={reveal}
-              custom={1}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/tdg/dr-trevino-candid.jpg"
-                alt="Dr. Ryan Trevino away from the practice"
-                className="aspect-[4/5] w-full rounded-3xl object-cover ring-1 ring-line shadow-[0_40px_90px_-50px_rgba(15,15,16,0.45)]"
-              />
-            </motion.div>
           </div>
         </div>
       </section>
