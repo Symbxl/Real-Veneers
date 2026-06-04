@@ -146,7 +146,10 @@ function CaseSection({
         </div>
 
         {/* Gallery — each picture sized like the home-page portfolio */}
-        <div className="mt-14 lg:mt-20 grid sm:grid-cols-2 gap-x-8 gap-y-14">
+        <div
+          id={index === 0 ? "photos" : undefined}
+          className="scroll-mt-28 mt-14 lg:mt-20 grid sm:grid-cols-2 gap-x-8 gap-y-14"
+        >
           {study.gallery.map((src, i) => (
             <GalleryImage
               key={src}
@@ -176,7 +179,7 @@ export default function PortfolioPage() {
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-foreground-muted text-balance">
               Every smile here was designed, milled, and hand-finished in our
-              Sugar Land studio — in just two days.
+              Sugar Land cosmetic dentistry studio — in just two days.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs tracking-[0.18em] uppercase text-foreground-muted">
               <span>{cases.length} Transformations</span>

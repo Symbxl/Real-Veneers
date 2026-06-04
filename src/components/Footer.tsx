@@ -23,11 +23,17 @@ export default function Footer() {
             <Link href="/contact">Book Consult</Link>
           </FooterCol>
           <FooterCol title="Visit">
-            4660 Sweetwater Blvd
-            <br />
-            Suite 230
-            <br />
-            Sugar Land, TX 77479
+            <a
+              href="https://maps.app.goo.gl/9qu8jrGt1QHMYx5r7"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              4660 Sweetwater Blvd
+              <br />
+              Suite 230
+              <br />
+              Sugar Land, TX 77479
+            </a>
           </FooterCol>
           <FooterCol title="Contact">
             <a href="tel:+12819801733">(281) 980-1733</a>

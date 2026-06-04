@@ -31,9 +31,16 @@ export default function Contact() {
 
             <div className="mt-12 border-t border-foreground/10">
               <ContactRow label="Studio">
-                4660 Sweetwater Blvd, Suite 230
-                <br />
-                Sugar Land, TX 77479
+                <a
+                  href="https://maps.app.goo.gl/9qu8jrGt1QHMYx5r7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors"
+                >
+                  4660 Sweetwater Blvd, Suite 230
+                  <br />
+                  Sugar Land, TX 77479
+                </a>
               </ContactRow>
               <ContactRow label="Phone">
                 <a
@@ -43,11 +50,7 @@ export default function Contact() {
                   (281) 980-1733
                 </a>
               </ContactRow>
-              <ContactRow label="Hours">
-                Mon–Thu · 9:00 – 5:00
-                <br />
-                Fri · By appointment
-              </ContactRow>
+              <ContactRow label="Hours">By appointment</ContactRow>
             </div>
           </div>
 

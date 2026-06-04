@@ -143,9 +143,17 @@ export default function AboutContent() {
               <span className="italic text-accent">artistry.</span>
             </h1>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-foreground-muted">
-              RealVeneers is the cosmetic studio inside Trevino Dental Group — a
-              top-rated Sugar Land practice led by Dr. Ryan Trevino. Natural
-              porcelain veneers, designed and milled by hand in two days,
+              RealVeneers is the cosmetic dentistry studio inside{" "}
+              <a
+                href="https://trevinodentalgroup.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-deep underline underline-offset-4 decoration-accent/60 transition-colors hover:decoration-accent-deep"
+              >
+                Trevino Dental Group
+              </a>{" "}
+              — a top-rated Sugar Land dental practice led by Dr. Ryan Trevino.
+              Natural porcelain veneers, designed and milled by hand in two days,
               alongside the preventive and restorative care your whole family
               needs — all under one roof.
             </p>

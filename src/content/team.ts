@@ -12,36 +12,36 @@ export type TeamMember = {
 // "Resume" button on those cards.
 export const team: TeamMember[] = [
   {
-    name: "Ryan",
+    name: "Dr. Ryan Trevino",
     role: "Dentist",
     quote:
       "I see the vibrant potential in every smile and am attentive to detail, delivering with exceptional function and aesthetics.",
     photo: "/team/Ryan.jpg",
-    resume: "/team/Ryan-resume.pdf",
+    resume: "/team/Resume%20Dr%20Ryan%20Trevino.pdf",
   },
   {
-    name: "Parisa",
+    name: "Dr. Parisa Sadeghi",
     role: "Dentist",
     quote:
       "Caring for your dental health is more than clean teeth, it's self-love, confidence, and a reason to smile every day. I want to help others feel proud of their smile because a healthy mouth can open the door to a happier life.",
     photo: "/team/Parisa.jpg",
-    resume: "/team/Parisa-resume.pdf",
+    resume: "/team/Resume%20Dr%20Parisa%20Sadeghi.pdf",
   },
   {
-    name: "Drew",
+    name: "Dr. Drew Rossi",
     role: "Periodontist",
     quote:
       "Using my expertise in regenerative periodontal therapy and soft and hard tissue reconstruction, as well as aesthetic periodontal services, I enjoy making my patients look and feel their best!",
     photo: "/team/Drew.jpg",
-    resume: "/team/Drew-resume.pdf",
+    resume: "/team/Resume%20Dr%20Drew%20Rossi.pdf",
   },
   {
-    name: "Cade",
+    name: "Dr. Cade Foust",
     role: "Oral Surgery",
     quote:
       "Nothing makes me happier than to hear my patients ask, 'That's it?' at the end of a procedure.",
     photo: "/team/Cade.jpg",
-    resume: "/team/Cade-resume.pdf",
+    resume: "/team/Resume%20Dr%20Cade%20Foust.pdf",
   },
   {
     name: "Myrna",

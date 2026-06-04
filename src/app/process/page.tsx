@@ -56,7 +56,7 @@ export default function ProcessPage() {
       <Nav />
       {/* The page itself doesn't scroll — this container does, snapping
           one panel into view per scroll. */}
-      <main className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth">
+      <main className="h-screen overflow-y-auto snap-y snap-proximity scroll-smooth">
         {/* Panel 1 — Headline, promise & timeline */}
         <ProcessIntro />
 

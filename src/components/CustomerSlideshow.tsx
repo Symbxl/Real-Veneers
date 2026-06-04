@@ -185,12 +185,10 @@ export default function CustomerSlideshow() {
         </h2>
 
         <p className="mt-7 max-w-2xl text-lg leading-relaxed text-foreground-muted text-pretty lg:text-xl">
-          <span className="font-medium text-foreground">
-            These are real RealVeneers patients, never stock photos.
-          </span>{" "}
-          Behind every smile is Dr. Trevino, who designs and mills each veneer
-          in-house and treats every patient like family. Here, your comfort, your
-          health, and the way you feel about your smile always come first.
+          These are real RealVeneers patients, never stock photos. Behind every
+          smile is Dr. Trevino, who designs and mills each veneer in-house and
+          treats every patient like family. Here, your comfort, your health, and
+          the way you feel about your smile always come first.
         </p>
       </motion.div>
 

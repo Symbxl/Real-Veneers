@@ -51,12 +51,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const dateFmt = new Intl.DateTimeFormat("en-US", {
-  month: "long",
-  day: "numeric",
-  year: "numeric",
-});
-
 // Renders one content block. The blog body is structured data, so the markup
 // — a single H1, then a clean H2/H3 outline — stays consistent and crawlable.
 function BlockView({ block }: { block: Block }) {
@@ -160,12 +154,8 @@ export default async function BlogPostPage({ params }: Props) {
               <p className="mt-6 text-xl leading-relaxed text-foreground-muted text-balance">
                 {post.description}
               </p>
-              <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs tracking-[0.16em] uppercase text-foreground-muted">
-                <span>{post.author}</span>
-                <span className="text-accent">·</span>
-                <span>{dateFmt.format(new Date(post.published))}</span>
-                <span className="text-accent">·</span>
-                <span>{post.readMinutes} min read</span>
+              <div className="mt-8 text-xs tracking-[0.16em] uppercase text-foreground-muted">
+                {post.author}
               </div>
             </div>
           </header>

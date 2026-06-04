@@ -21,16 +21,6 @@ export const metadata: Metadata = {
   },
 };
 
-const dateFmt = new Intl.DateTimeFormat("en-US", {
-  month: "long",
-  day: "numeric",
-  year: "numeric",
-});
-
-function fmt(iso: string) {
-  return dateFmt.format(new Date(iso));
-}
-
 export default function BlogIndexPage() {
   // Hide the 2 oldest posts from the index (postsByDate is newest-first).
   const [featured, ...rest] = postsByDate.slice(0, -2);
@@ -92,11 +82,6 @@ export default function BlogIndexPage() {
                 <p className="mt-5 text-lg leading-relaxed text-foreground-muted">
                   {featured.excerpt}
                 </p>
-                <div className="mt-6 flex items-center gap-3 text-xs tracking-[0.16em] uppercase text-foreground-muted">
-                  <span>{fmt(featured.published)}</span>
-                  <span className="text-accent">·</span>
-                  <span>{featured.readMinutes} min read</span>
-                </div>
                 <span className="mt-7 inline-flex items-center gap-2 text-sm tracking-wide text-foreground group-hover:text-accent-deep transition-colors">
                   <span className="underline underline-offset-4 decoration-line">
                     Read the article
@@ -139,11 +124,6 @@ export default function BlogIndexPage() {
                     <p className="mt-3 text-sm leading-relaxed text-foreground-muted">
                       {post.excerpt}
                     </p>
-                    <div className="mt-4 flex items-center gap-3 text-xs tracking-[0.16em] uppercase text-foreground-muted">
-                      <span>{fmt(post.published)}</span>
-                      <span className="text-accent">·</span>
-                      <span>{post.readMinutes} min</span>
-                    </div>
                   </Link>
                 </article>
               ))}

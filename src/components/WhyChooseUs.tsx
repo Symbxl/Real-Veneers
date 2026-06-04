@@ -136,7 +136,7 @@ export default function WhyChooseUs() {
 
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
           <a
-            href="#contact"
+            href="/portfolio#photos"
             className="inline-flex items-center gap-3 rounded-full bg-foreground text-background pl-7 pr-3 py-3 text-sm tracking-wide hover:bg-accent-deep transition-colors group"
           >
             See the difference for yourself
