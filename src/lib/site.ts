@@ -21,6 +21,8 @@ export const site = {
     postalCode: "77479",
     country: "US",
   },
+  // Link to the studio's Google Maps business listing (not a dropped pin).
+  mapsUrl: "https://maps.app.goo.gl/9qu8jrGt1QHMYx5r7",
   geo: { lat: 29.5969, lng: -95.6349 },
   // Cities the practice draws patients from — used throughout blog copy so the
   // site surfaces for "veneers near me" searches across Greater Houston.

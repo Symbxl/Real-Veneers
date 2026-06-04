@@ -18,6 +18,8 @@ const details = [
       site.address.street,
       `${site.address.city}, ${site.address.region} ${site.address.postalCode}`,
     ],
+    href: site.mapsUrl,
+    external: true,
   },
   {
     label: "Phone",
@@ -78,6 +80,9 @@ export default function ContactPage() {
                       {d.href ? (
                         <a
                           href={d.href}
+                          {...(d.external
+                            ? { target: "_blank", rel: "noopener noreferrer" }
+                            : {})}
                           className="transition-colors hover:text-accent"
                         >
                           {d.lines.join(" ")}
