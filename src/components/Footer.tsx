@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="bg-background border-t border-line">
@@ -13,10 +15,12 @@ export default function Footer() {
             </p>
           </div>
           <FooterCol title="Explore">
-            <a href="#process">The Process</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#about">Dr. Trevino</a>
-            <a href="#contact">Book Consult</a>
+            <Link href="/process">The Process</Link>
+            <Link href="/portfolio">Portfolio</Link>
+            <Link href="/about">Dr. Trevino</Link>
+            <Link href="/meet-the-team">Meet the Team</Link>
+            <Link href="/blog">Blog</Link>
+            <Link href="/contact">Book Consult</Link>
           </FooterCol>
           <FooterCol title="Visit">
             4660 Sweetwater Blvd

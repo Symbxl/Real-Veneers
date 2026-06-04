@@ -2,27 +2,27 @@ import { Stars, GoogleG } from "./GoogleRating";
 
 const reviews = [
   {
-    quote:
-      "I can't say enough great things about Dr. Trevino and his team. From the moment I walked in, I felt an incredible sense of comfort and professionalism. The team goes above and beyond to make both my smile and me feel at ease throughout the entire process.",
-    name: "Mildred Sandor",
-    date: "04-03-2026",
-    initial: "M",
+    quote: [
+      "I've been coming to this dental office for a while now and every visit has been excellent. The staff is friendly, the office is always clean and welcoming, and they really take the time to explain everything clearly. A special shoutout to Stana, my hygienist — she's amazing! Super gentle, thorough, and always makes sure I'm comfortable the entire time. I always look forward to my cleanings. Highly recommend this place!",
+    ],
+    name: "Carlos Aparicio",
+    initial: "C",
     color: "#e2725b",
   },
   {
-    quote:
-      "Dr. Trevino is the real deal. Their team is professional, creative, and results-driven. From strategy to execution, they understand how to build a brand and create engaging content that actually converts. They are not just another marketing agency.",
-    name: "Houston Luxury Rides",
-    date: "03-22-2026",
-    initial: "H",
+    quote: [
+      "Dr. Trevino's entire team is an absolute gem. From the front desk staff, to the hygienists (Stana and Janet are incredible!) and of course Dr. Trevino himself - everyone is so kind, patient, and make you feel so comfortable. I've had terrible past experiences with dentists who have bad bedside manner and Dr. Trevino's care and passion truly shine through when he's speaking to you. I've never felt rushed or like just another number when I'm here. Dare I say, I look forward to coming to the dentist now. I cannot recommend Dr. Trevino and his team enough. My only complaint is that Google only allows me to give 5 stars!",
+    ],
+    name: "Shelly Rospond",
+    initial: "S",
     color: "#3b6ea5",
   },
   {
-    quote:
-      "Dr. Trevino brings a point of excellence to every detail of their work — from communication and proposals to the final delivery. They placed a foundational role in building the social media presence for our social media presence, helping it grow far.",
-    name: "Raul Bustillos",
-    date: "03-04-2026",
-    initial: "R",
+    quote: [
+      "Great office. Very clean and updated facility. Staff is very friendly and welcoming. They get you in and out in a great time. I've been very happy with the services I've received here. Nothing feels rushed and everyone takes time to sit and talk with you about any questions or concerns. Dr. Trevino is a great dentist, very knowledgeable and patient!",
+    ],
+    name: "Laccie Sumpter",
+    initial: "L",
     color: "#5a8f69",
   },
 ];
@@ -58,7 +58,7 @@ export default function GoogleReviews() {
           </a>
         </div>
 
-        <div className="mt-16 grid gap-7 md:grid-cols-3">
+        <div className="mt-16 grid items-start gap-7 md:grid-cols-3">
           {reviews.map((r) => (
             <figure
               key={r.name}
@@ -77,8 +77,10 @@ export default function GoogleReviews() {
                 <GoogleG size={26} />
               </div>
 
-              <blockquote className="relative mt-7 flex-1 text-[17px] leading-relaxed text-foreground/80">
-                {r.quote}
+              <blockquote className="relative mt-7 flex-1 space-y-4 text-[17px] leading-relaxed text-foreground/80">
+                {r.quote.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
               </blockquote>
 
               <a
@@ -111,8 +113,6 @@ export default function GoogleReviews() {
                   <div className="mt-1 flex items-center gap-1.5 text-xs text-foreground-muted">
                     <GoogleG size={13} />
                     <span>Posted on Google</span>
-                    <span className="text-line">·</span>
-                    <span>{r.date}</span>
                   </div>
                 </div>
               </figcaption>
