@@ -1,4 +1,5 @@
 import HeroForm from "./HeroForm";
+import { site } from "@/lib/site";
 
 export default function Contact() {
   return (
@@ -32,7 +33,7 @@ export default function Contact() {
             <div className="mt-12 border-t border-foreground/10">
               <ContactRow label="Studio">
                 <a
-                  href="https://maps.app.goo.gl/9qu8jrGt1QHMYx5r7"
+                  href={site.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-accent transition-colors"

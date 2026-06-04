@@ -11,7 +11,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-const details = [
+type Detail = {
+  label: string;
+  lines: string[];
+  href?: string;
+  external?: boolean;
+};
+
+const details: Detail[] = [
   {
     label: "Studio",
     lines: [
@@ -96,14 +103,15 @@ export default function ContactPage() {
                   </div>
                 ))}
 
-                <div className="mt-8 overflow-hidden rounded-2xl ring-1 ring-line">
-                  <iframe
-                    title="RealVeneers studio location"
-                    src="https://www.google.com/maps?q=4660+Sweetwater+Blvd+Suite+230+Sugar+Land+TX+77479&output=embed"
-                    className="h-56 w-full"
-                    loading="lazy"
-                  />
-                </div>
+                <a
+                  href={site.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium tracking-wide text-foreground ring-1 ring-line transition-colors hover:text-accent hover:ring-accent/40"
+                >
+                  Open in Maps
+                  <span aria-hidden>→</span>
+                </a>
               </div>
 
               {/* Form */}
