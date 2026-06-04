@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import ResumeModal from "@/components/ResumeModal";
 import { team } from "@/content/team";
 
 export const metadata: Metadata = {
@@ -101,34 +102,7 @@ export default function MeetTheTeamPage() {
                       {m.quote}
                     </blockquote>
                     {m.resume && (
-                      <a
-                        href={m.resume}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group mt-6 inline-flex w-fit items-center gap-2.5 rounded-full border border-line bg-background px-5 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-foreground transition-colors hover:bg-accent-soft/50"
-                      >
-                        <svg
-                          width="14"
-                          height="14"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          aria-hidden
-                        >
-                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                          <polyline points="14 2 14 8 20 8" />
-                        </svg>
-                        Resume
-                        <span
-                          aria-hidden
-                          className="transition-transform group-hover:translate-x-0.5"
-                        >
-                          →
-                        </span>
-                      </a>
+                      <ResumeModal resume={m.resume} name={m.name} />
                     )}
                   </figcaption>
                 </figure>
