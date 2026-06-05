@@ -1,12 +1,32 @@
 "use client";
 
 import { useState } from "react";
+import { submitToFormspree } from "@/lib/formspree";
+import { site } from "@/lib/site";
 
 const inputClass =
   "w-full rounded-xl border border-line bg-background/40 px-4 py-3.5 text-base transition placeholder:text-foreground-muted/60 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setSubmitting(true);
+    setFailed(false);
+    try {
+      await submitToFormspree(new FormData(form));
+      form.reset();
+      setSubmitted(true);
+    } catch {
+      setFailed(true);
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   if (submitted) {
     return (
@@ -31,14 +51,48 @@ export default function ContactForm() {
     );
   }
 
+  if (failed) {
+    return (
+      <div className="rounded-2xl bg-surface p-8 text-center ring-1 ring-line shadow-[0_30px_80px_-30px_rgba(15,15,16,0.22)]">
+        <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-red-50 text-2xl text-red-600">
+          !
+        </div>
+        <h3 className="mt-5 font-display text-2xl tracking-tight text-foreground">
+          Something went wrong.
+        </h3>
+        <p className="mt-2 text-foreground-muted">
+          We couldn&apos;t send your message just now. Please call our front
+          office and we&apos;ll take care of you right away.
+        </p>
+        <a
+          href={`tel:${site.phone}`}
+          className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-foreground px-6 py-3.5 text-base tracking-wide text-background transition-colors hover:bg-accent-deep"
+        >
+          Call {site.phoneDisplay}
+        </a>
+        <button
+          type="button"
+          onClick={() => setFailed(false)}
+          className="mx-auto mt-4 block text-sm font-medium text-accent-deep underline underline-offset-4"
+        >
+          Try again
+        </button>
+      </div>
+    );
+  }
+
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        setSubmitted(true);
-      }}
+      onSubmit={handleSubmit}
       className="rounded-2xl bg-surface p-7 lg:p-9 ring-1 ring-line shadow-[0_30px_80px_-30px_rgba(15,15,16,0.22)]"
     >
+      <input type="hidden" name="source" value="Contact page" />
+      <input
+        type="hidden"
+        name="_subject"
+        value="New message from the RealVeneers contact page"
+      />
+
       <h3 className="font-display text-2xl tracking-tight text-foreground">
         Send us a message
       </h3>
@@ -121,9 +175,10 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="mt-6 w-full rounded-xl bg-foreground px-6 py-4 text-base tracking-wide text-background transition-colors hover:bg-accent-deep"
+        disabled={submitting}
+        className="mt-6 w-full rounded-xl bg-foreground px-6 py-4 text-base tracking-wide text-background transition-colors hover:bg-accent-deep disabled:cursor-not-allowed disabled:opacity-60"
       >
-        Send message
+        {submitting ? "Sending…" : "Send message"}
       </button>
 
       <p className="mt-3 text-center text-xs text-foreground-muted">

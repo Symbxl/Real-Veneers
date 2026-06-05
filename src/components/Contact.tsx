@@ -56,7 +56,7 @@ export default function Contact() {
           </div>
 
           <div className="lg:pl-4">
-            <HeroForm />
+            <HeroForm source="Contact section" />
           </div>
         </div>
       </div>

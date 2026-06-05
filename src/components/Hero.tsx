@@ -52,7 +52,7 @@ export default function Hero() {
             className="relative animate-fade-up lg:pl-4"
             style={{ animationDelay: "0.15s" }}
           >
-            <HeroForm />
+            <HeroForm source="Hero section" />
           </div>
         </div>
       </div>

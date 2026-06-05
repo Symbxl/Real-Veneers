@@ -1,13 +1,38 @@
 "use client";
 
 import { useState } from "react";
+import { submitToFormspree } from "@/lib/formspree";
+import { site } from "@/lib/site";
 
-export default function HeroForm() {
+export default function HeroForm({
+  source = "Hero section",
+}: {
+  source?: string;
+}) {
   const [step, setStep] = useState<0 | 1>(0);
   const [phone, setPhone] = useState("");
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
   const [consent, setConsent] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setSubmitting(true);
+    setFailed(false);
+    try {
+      await submitToFormspree(new FormData(form));
+      setSubmitted(true);
+      setStep(1);
+    } catch {
+      setFailed(true);
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   return (
     <div className="relative bg-surface rounded-2xl p-7 lg:p-9 shadow-[0_30px_80px_-20px_rgba(15,15,16,0.22),0_8px_24px_-12px_rgba(15,15,16,0.12)] ring-1 ring-line/60">
@@ -54,29 +79,71 @@ export default function HeroForm() {
         </button>
       </div>
 
-      <h3 className="mt-6 font-display text-3xl lg:text-4xl leading-tight tracking-tight text-foreground">
-        Free Smile Consultation
-      </h3>
-      <p className="mt-3 text-foreground-muted leading-relaxed">
-        Excited to speak with you about{" "}
-        <a
-          href="#portfolio"
-          className="text-accent-deep underline underline-offset-4 decoration-accent/60 hover:decoration-accent-deep"
-        >
-          your new smile
-        </a>
-        .
-        <br />
-        Book a call below to see if we&apos;re a fit.
-      </p>
+      {submitted ? (
+        <div className="mt-8 text-center">
+          <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-accent-soft text-2xl text-accent-deep">
+            ✓
+          </div>
+          <h3 className="mt-5 font-display text-2xl lg:text-3xl tracking-tight text-foreground">
+            Thank you{first ? `, ${first}` : ""} — we&apos;ll be in touch.
+          </h3>
+          <p className="mt-2 text-foreground-muted">
+            Our team will reach out within one business day to book your free
+            consultation.
+          </p>
+        </div>
+      ) : failed ? (
+        <div className="mt-8 text-center">
+          <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-red-50 text-2xl text-red-600">
+            !
+          </div>
+          <h3 className="mt-5 font-display text-2xl lg:text-3xl tracking-tight text-foreground">
+            Something went wrong.
+          </h3>
+          <p className="mt-2 text-foreground-muted">
+            We couldn&apos;t send your request just now. Please call our front
+            office and we&apos;ll get your free consultation booked right away.
+          </p>
+          <a
+            href={`tel:${site.phone}`}
+            className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-foreground px-6 py-3.5 text-base tracking-wide text-background transition-colors hover:bg-accent-deep"
+          >
+            Call {site.phoneDisplay}
+          </a>
+          <button
+            type="button"
+            onClick={() => setFailed(false)}
+            className="mx-auto mt-4 block text-sm font-medium text-accent-deep underline underline-offset-4"
+          >
+            Try again
+          </button>
+        </div>
+      ) : (
+        <>
+          <h3 className="mt-6 font-display text-3xl lg:text-4xl leading-tight tracking-tight text-foreground">
+            Free Smile Consultation
+          </h3>
+          <p className="mt-3 text-foreground-muted leading-relaxed">
+            Excited to speak with you about{" "}
+            <a
+              href="#portfolio"
+              className="text-accent-deep underline underline-offset-4 decoration-accent/60 hover:decoration-accent-deep"
+            >
+              your new smile
+            </a>
+            .
+            <br />
+            Book a call below to see if we&apos;re a fit.
+          </p>
 
-      <form
-        className="mt-6 space-y-4"
-        onSubmit={(e) => {
-          e.preventDefault();
-          setStep(1);
-        }}
-      >
+          <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+        <input type="hidden" name="source" value={source} />
+        <input
+          type="hidden"
+          name="_subject"
+          value={`New consultation request (${source}) — RealVeneers`}
+        />
+
         <div className="flex items-stretch border border-line rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-accent/40 focus-within:border-accent transition">
           <div className="flex items-center gap-2 px-4 border-r border-line text-sm bg-background/50">
             <span aria-hidden className="text-base leading-none">
@@ -86,9 +153,11 @@ export default function HeroForm() {
           </div>
           <input
             type="tel"
+            name="phone"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="(555) 123-4567"
+            required
             className="flex-1 bg-transparent px-4 py-3.5 text-base focus:outline-none placeholder:text-foreground-muted/60"
           />
         </div>
@@ -96,6 +165,7 @@ export default function HeroForm() {
         <div className="grid grid-cols-2 gap-4">
           <input
             type="text"
+            name="firstName"
             value={first}
             onChange={(e) => setFirst(e.target.value)}
             placeholder="First name **"
@@ -104,6 +174,7 @@ export default function HeroForm() {
           />
           <input
             type="text"
+            name="lastName"
             value={last}
             onChange={(e) => setLast(e.target.value)}
             placeholder="Last name **"
@@ -136,15 +207,19 @@ export default function HeroForm() {
 
         <button
           type="submit"
-          disabled={!consent}
+          disabled={!consent || submitting}
           className="w-full inline-flex items-center justify-center gap-3 rounded-xl bg-foreground text-background px-6 py-4 text-base tracking-wide hover:bg-accent-deep transition-colors group disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_12px_30px_-12px_rgba(15,15,16,0.45)]"
         >
-          Continue
-          <span className="group-hover:translate-x-0.5 transition-transform">
-            →
-          </span>
+          {submitting ? "Sending…" : "Continue"}
+          {!submitting && (
+            <span className="group-hover:translate-x-0.5 transition-transform">
+              →
+            </span>
+          )}
         </button>
-      </form>
+          </form>
+        </>
+      )}
     </div>
   );
 }
