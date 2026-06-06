@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { team } from "@/content/team";
 
@@ -96,11 +97,12 @@ export default function TeamCarousel() {
               >
                 <figure className="group/card flex h-full flex-col">
                   <div className="overflow-hidden rounded-2xl ring-1 ring-line shadow-[0_30px_70px_-45px_rgba(15,15,16,0.5)]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={m.photo}
                       alt={`${m.name}, ${m.role} at Trevino Dental Group`}
-                      loading="lazy"
+                      width={1023}
+                      height={1023}
+                      sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
                       className="aspect-[4/5] w-full object-cover object-top transition-transform duration-[1200ms] ease-out group-hover/card:scale-[1.05]"
                     />
                   </div>

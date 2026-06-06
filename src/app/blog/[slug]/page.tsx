@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Nav from "@/components/Nav";
@@ -163,11 +164,13 @@ export default async function BlogPostPage({ params }: Props) {
           {/* Hero image */}
           <div className="mx-auto max-w-5xl px-6 sm:px-10">
             <div className="relative aspect-[16/9] overflow-hidden rounded-3xl bg-foreground/5 ring-1 ring-line">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={post.hero}
                 alt={post.heroAlt}
-                className="absolute inset-0 h-full w-full object-cover"
+                fill
+                sizes="(min-width:1024px) 1024px, 100vw"
+                className="object-cover"
+                priority
               />
             </div>
           </div>

@@ -1,12 +1,23 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Portfolio — RealVeneers",
+  title: "Veneer Before & After Portfolio",
   description:
-    "Real patients, real results. Smile transformations by Dr. Ryan Trevino in Sugar Land, TX.",
+    "Real patients, real results. Browse before-and-after porcelain veneer and smile-makeover cases by Dr. Ryan Trevino in Sugar Land, TX.",
+  alternates: { canonical: "/portfolio" },
+  openGraph: {
+    title: "Veneer Before & After Portfolio — RealVeneers, Sugar Land TX",
+    description:
+      "Before-and-after smile transformations by Dr. Ryan Trevino in Sugar Land, TX.",
+    url: `${SITE_URL}/portfolio`,
+    type: "website",
+    images: ["/og.jpg"],
+  },
 };
 
 type CaseStudy = {
@@ -78,13 +89,13 @@ const totalPhotos = cases.reduce((n, c) => n + c.gallery.length, 0);
 
 function GalleryImage({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="group aspect-[4/5] overflow-hidden rounded-2xl bg-foreground/5 ring-1 ring-line">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+    <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-foreground/5 ring-1 ring-line">
+      <Image
         src={src}
         alt={alt}
-        loading="lazy"
-        className="h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.05]"
+        fill
+        sizes="(min-width:640px) 50vw, 100vw"
+        className="object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.05]"
       />
     </div>
   );

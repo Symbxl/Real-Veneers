@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "About the Practice",
+  title: "Trevino Dental Group — Our Sugar Land Practice",
   description:
     "Step inside Trevino Dental Group in Sugar Land, TX — a calm, welcoming dental home led by Dr. Ryan Trevino. See how a visit works, how we keep you comfortable, and why families feel at ease here.",
   alternates: { canonical: "/about-the-practice" },
@@ -143,10 +144,13 @@ export default function AboutThePracticePage() {
             </div>
 
             {/* Welcoming patient moment */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/consult1.jpg"
               alt="A patient relaxed and smiling during a visit at Trevino Dental Group"
+              width={2400}
+              height={1600}
+              priority
+              sizes="100vw"
               className="mt-12 aspect-[16/10] w-full rounded-3xl object-cover object-center ring-1 ring-line sm:aspect-[16/8]"
             />
 
@@ -272,10 +276,12 @@ export default function AboutThePracticePage() {
                 </ul>
               </div>
 
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/result.jpg"
                 alt="A relaxed, friendly consultation at Trevino Dental Group"
+                width={2400}
+                height={1600}
+                sizes="(min-width:1024px) 50vw, 100vw"
                 className="aspect-[4/5] w-full rounded-3xl object-cover ring-1 ring-line shadow-[0_40px_90px_-50px_rgba(15,15,16,0.45)]"
               />
             </div>
@@ -322,10 +328,12 @@ export default function AboutThePracticePage() {
         <section className="py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 sm:px-10">
             <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20 lg:items-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/tdg/dr-trevino-candid.jpg"
                 alt="Dr. Ryan Trevino, founder of Trevino Dental Group"
+                width={683}
+                height={1024}
+                sizes="(min-width:1024px) 50vw, 100vw"
                 className="aspect-[4/5] w-full rounded-3xl object-cover object-top ring-1 ring-line"
               />
               <div>

@@ -59,10 +59,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/team/Ryan.jpg",
-        width: 1023,
-        height: 1023,
-        alt: "Dr. Ryan Trevino — RealVeneers, Sugar Land, TX",
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "RealVeneers — 2-Day Smile Transformations in Sugar Land, TX",
       },
     ],
   },
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     title: "RealVeneers — 2-Day Smile Transformation in Sugar Land, TX",
     description:
       "AI-designed, hand-finished porcelain veneers by Dr. Ryan Trevino in Sugar Land, TX.",
-    images: ["/team/Ryan.jpg"],
+    images: ["/og.jpg"],
   },
   robots: {
     index: true,

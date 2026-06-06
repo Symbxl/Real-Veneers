@@ -1,6 +1,6 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -38,10 +38,12 @@ function BeforeAfter({ model }: { model: Model }) {
         }}
       >
         {/* BEFORE layer */}
-        <img
+        <Image
           src={model.before}
           alt={`${model.name} before`}
-          className={`absolute inset-0 h-full w-full object-cover object-top ${
+          fill
+          sizes="(min-width:768px) 768px, 100vw"
+          className={`object-cover object-top ${
             model.zoom ?? ""
           }`}
         />
@@ -54,10 +56,12 @@ function BeforeAfter({ model }: { model: Model }) {
           className="absolute inset-0"
           style={{ clipPath: `inset(0 0 0 ${pos}%)` }}
         >
-          <img
+          <Image
             src={model.after}
             alt={`${model.name} after`}
-            className={`absolute inset-0 h-full w-full object-cover object-top ${
+            fill
+            sizes="(min-width:768px) 768px, 100vw"
+            className={`object-cover object-top ${
               model.zoom ?? ""
             } ${model.afterShift ?? ""}`}
           />

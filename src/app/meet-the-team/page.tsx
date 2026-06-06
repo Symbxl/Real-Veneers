@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -54,10 +55,13 @@ export default function MeetTheTeamPage() {
             </div>
 
             {/* Team group photo */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/tdg/team-group.jpg"
               alt="The Trevino Dental Group team in Sugar Land, TX"
+              width={2560}
+              height={1585}
+              priority
+              sizes="100vw"
               className="mt-12 aspect-[16/10] w-full rounded-3xl object-cover object-top ring-1 ring-line sm:aspect-[16/8]"
             />
           </div>
@@ -83,11 +87,12 @@ export default function MeetTheTeamPage() {
               {team.map((m) => (
                 <figure key={m.name} className="flex flex-col">
                   <div className="overflow-hidden rounded-2xl ring-1 ring-line">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={m.photo}
                       alt={`${m.name}, ${m.role} at Trevino Dental Group`}
-                      loading="lazy"
+                      width={1023}
+                      height={1023}
+                      sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
                       className="aspect-[4/5] w-full object-cover object-top"
                     />
                   </div>
@@ -130,10 +135,12 @@ export default function MeetTheTeamPage() {
                 </div>
               </div>
 
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/consult.jpg"
                 alt="A warm, welcoming consultation at Trevino Dental Group"
+                width={2400}
+                height={1600}
+                sizes="(min-width:1024px) 50vw, 100vw"
                 className="aspect-[4/5] w-full rounded-3xl object-cover ring-1 ring-line shadow-[0_40px_90px_-50px_rgba(15,15,16,0.45)]"
               />
             </div>

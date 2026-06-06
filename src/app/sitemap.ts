@@ -19,6 +19,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.6,
     },
+    {
+      url: `${SITE_URL}/about-the-practice`,
+      changeFrequency: "yearly",
+      priority: 0.5,
+    },
     { url: `${SITE_URL}/contact`, changeFrequency: "yearly", priority: 0.6 },
     { url: `${SITE_URL}/blog`, changeFrequency: "weekly", priority: 0.9 },
   ];

@@ -30,7 +30,12 @@ export function dentistSchema() {
     telephone: site.phone,
     email: site.email,
     image: `${SITE_URL}/result.jpg`,
-    logo: `${SITE_URL}/result.jpg`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}/logo.webp`,
+      width: 1024,
+      height: 211,
+    },
     priceRange: "$$$",
     address: postalAddress,
     geo: {
@@ -180,6 +185,34 @@ export function articleSchema(opts: {
     author: { "@type": "Person", name: opts.authorName },
     publisher: { "@id": ORG_ID },
     mainEntityOfPage: { "@type": "WebPage", "@id": opts.url },
+  };
+}
+
+// HowTo — describes the two-day veneer workflow as ordered steps. Google no
+// longer renders HowTo as a rich result, but the markup gives LLMs (ChatGPT,
+// Perplexity, Claude) an unambiguous, machine-readable answer to "how do
+// two-day veneers work?" — the practice's core differentiator.
+export function howToSchema(opts: {
+  name: string;
+  description: string;
+  url: string;
+  image: string;
+  steps: { name: string; text: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: opts.name,
+    description: opts.description,
+    image: opts.image,
+    totalTime: "P2D",
+    step: opts.steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+      url: `${opts.url}#step-${i + 1}`,
+    })),
   };
 }
 

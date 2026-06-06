@@ -193,7 +193,7 @@ export default function RealSection() {
             </span>
             <video
               ref={videoRef}
-              src="/stepone.mov"
+              src="/stepone.mp4"
               autoPlay
               muted
               loop

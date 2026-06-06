@@ -422,6 +422,15 @@ export default function AboutContent() {
               From routine cleanings to full smile makeovers, every service your
               family needs is here — no referrals across town.
             </p>
+            <Link
+              href="/about-the-practice"
+              className="group mt-8 inline-flex items-center gap-3 rounded-full border border-line bg-background pl-6 pr-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-foreground transition-colors hover:bg-accent-soft/50"
+            >
+              Step inside the practice
+              <span className="grid h-7 w-7 place-items-center rounded-full bg-foreground/10 transition-transform group-hover:translate-x-0.5">
+                →
+              </span>
+            </Link>
           </motion.div>
 
           <div className="mt-14 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">

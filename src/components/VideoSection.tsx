@@ -46,7 +46,7 @@ export default function VideoSection() {
         <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-2xl ring-1 ring-line shadow-[0_40px_90px_-40px_rgba(15,15,16,0.45)]">
           <video
             ref={videoRef}
-            src="/stepone.mov"
+            src="/stepone.mp4"
             autoPlay
             muted
             loop

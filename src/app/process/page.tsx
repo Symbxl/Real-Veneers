@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import ProcessIntro from "@/components/ProcessIntro";
@@ -5,6 +7,45 @@ import ToothShowcase from "@/components/ToothShowcase";
 import VideoButton from "@/components/VideoButton";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
+import { SITE_URL } from "@/lib/site";
+import { breadcrumbSchema, howToSchema } from "@/lib/structured-data";
+
+export const metadata: Metadata = {
+  title: "The 2-Day Veneer Process",
+  description:
+    "See how RealVeneers delivers a full smile in two days: a free consult and 3D scan, AI-assisted smile design, in-house porcelain milling, and same-week placement by Dr. Ryan Trevino in Sugar Land, TX.",
+  alternates: { canonical: "/process" },
+  openGraph: {
+    title: "The 2-Day Veneer Process — RealVeneers, Sugar Land TX",
+    description:
+      "Consult, design, mill, and place — every step of the 48-hour porcelain veneer workflow, done under one roof.",
+    url: `${SITE_URL}/process`,
+    type: "website",
+    images: ["/og.jpg"],
+  },
+};
+
+// Mirrors the four on-page steps so search engines and AI assistants get the
+// same canonical answer to "how does the two-day veneer process work?".
+const PROCESS_STEPS = [
+  {
+    name: "Free consultation & 3D scan",
+    text: "A relaxed, no-pressure conversation about the smile you want, followed by a quick digital scan — no trays, no impression goop, no obligation.",
+  },
+  {
+    name: "AI-assisted smile design",
+    text: "Your smile is built in 3D before anything is milled — every edge, curve, and translucent layer modeled to sit naturally inside your face.",
+  },
+  {
+    name: "In-house porcelain milling",
+    text: "Master ceramists mill and hand-finish your veneers in the lab inside our studio, so there is no shipping your case to a remote lab and waiting weeks.",
+  },
+  {
+    name: "Placement & reveal",
+    text: "Two days after your first scan, the temporaries come off and your final porcelain veneers are bonded into place.",
+  },
+];
 
 // One full-viewport, scroll-snapped panel.
 function Panel({
@@ -40,11 +81,12 @@ function ImageStage({
         bare ? "" : "rounded-3xl ring-1 ring-line bg-background"
       }`}
     >
-      <img
+      <Image
         src={src}
         alt={alt}
-        loading="lazy"
-        className={`absolute inset-0 w-full h-full object-cover ${imgClassName}`}
+        fill
+        sizes="(min-width:1024px) 50vw, 100vw"
+        className={`w-full h-full object-cover ${imgClassName}`}
       />
     </div>
   );
@@ -53,6 +95,22 @@ function ImageStage({
 export default function ProcessPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: "Home", url: SITE_URL },
+            { name: "The Process", url: `${SITE_URL}/process` },
+          ]),
+          howToSchema({
+            name: "The 2-Day Veneer Process at RealVeneers",
+            description:
+              "How RealVeneers designs, mills, and places porcelain veneers in two days, under one roof in Sugar Land, TX.",
+            url: `${SITE_URL}/process`,
+            image: `${SITE_URL}/result.jpg`,
+            steps: PROCESS_STEPS,
+          }),
+        ]}
+      />
       <Nav />
       {/* The page itself doesn't scroll — this container does, snapping
           one panel into view per scroll. */}
@@ -75,7 +133,7 @@ export default function ProcessPage() {
                 then a quick digital scan. No trays, no impression goop, no
                 obligation. You leave knowing exactly what&apos;s possible.
               </p>
-              <VideoButton src="/stepone.mov" />
+              <VideoButton src="/stepone.mp4" />
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl ring-1 ring-line bg-background">
               <video

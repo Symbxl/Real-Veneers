@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants } from "motion/react";
 
@@ -117,11 +118,12 @@ export default function About() {
             />
 
             <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] ring-1 ring-line shadow-[0_50px_90px_-45px_rgba(15,15,16,0.5)]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/dr.jpg"
                 alt="Dr. Ryan Trevino"
-                className="absolute inset-0 h-full w-full object-cover object-top"
+                fill
+                sizes="(min-width:1024px) 50vw, 100vw"
+                className="object-cover object-top"
               />
             </div>
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
       "Honest guides to porcelain veneers, costs, and cosmetic dentistry from a Sugar Land cosmetic dentist.",
     url: `${SITE_URL}/blog`,
     type: "website",
+    images: ["/og.jpg"],
   },
 };
 
@@ -61,11 +63,13 @@ export default function BlogIndexPage() {
               className="group grid lg:grid-cols-2 gap-8 lg:gap-14 items-center"
             >
               <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-foreground/5 ring-1 ring-line">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={featured.hero}
                   alt={featured.heroAlt}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.04]"
+                  fill
+                  priority
+                  sizes="(min-width:1024px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.04]"
                 />
               </div>
               <div>
@@ -107,12 +111,12 @@ export default function BlogIndexPage() {
                 <article key={post.slug} className="group flex flex-col">
                   <Link href={`/blog/${post.slug}`} className="flex flex-col">
                     <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-foreground/5 ring-1 ring-line">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <Image
                         src={post.hero}
                         alt={post.heroAlt}
-                        loading="lazy"
-                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.05]"
+                        fill
+                        sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.05]"
                       />
                     </div>
                     <div className="mt-5 text-xs tracking-[0.18em] uppercase text-accent-deep">
