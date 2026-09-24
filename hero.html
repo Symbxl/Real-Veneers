@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hero — RealVeneers</title>
+
+    <!-- Fonts: EB Garamond (header fallback for Adobe Garamond Pro) + Alegreya Sans SC (kicker) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@400;500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: "#ffffff",
+              surface: "#ffffff",
+              foreground: {
+                DEFAULT: "#0f0f10",
+                muted: "#5a574f",
+              },
+              accent: {
+                DEFAULT: "#6f9c52",
+                deep: "#41662f",
+                soft: "#dcecd0",
+              },
+              line: "#dbe6d2",
+            },
+            fontFamily: {
+              display: [
+                '"Adobe Garamond Pro"',
+                '"EB Garamond"',
+                "Garamond",
+                "Georgia",
+                "serif",
+              ],
+              sans: [
+                "Calibri",
+                "Carlito",
+                '"Segoe UI"',
+                "system-ui",
+                "-apple-system",
+                "sans-serif",
+              ],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      :root {
+        --background: #ffffff;
+        --surface: #ffffff;
+        --foreground: #0f0f10;
+        --foreground-muted: #5a574f;
+        --accent: #6f9c52;
+        --accent-deep: #41662f;
+        --accent-soft: #dcecd0;
+        --line: #dbe6d2;
+
+        --font-header: "Adobe Garamond Pro", "EB Garamond", Garamond, Georgia,
+          serif;
+        --font-subhead: "Alegreya Sans SC", ui-sans-serif, system-ui, sans-serif;
+        --font-body: "Calibri", "Carlito", "Segoe UI", system-ui, -apple-system,
+          sans-serif;
+      }
+
+      html,
+      body {
+        background: var(--background);
+        color: var(--foreground);
+      }
+
+      body {
+        font-family: var(--font-body);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      ::selection {
+        background: var(--accent-soft);
+        color: var(--foreground);
+      }
+
+      /* Headers — Adobe Garamond Pro */
+      .font-display {
+        font-family: var(--font-header);
+        letter-spacing: -0.01em;
+      }
+
+      /* Small-caps kicker labels carry the subheader font */
+      [class~="uppercase"] {
+        font-family: var(--font-subhead);
+      }
+
+      .text-balance {
+        text-wrap: balance;
+      }
+
+      @keyframes fade-up {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-up {
+        animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      /* Fine film-grain overlay sitting above the ambient gradients */
+      .grain::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.04;
+        mix-blend-mode: multiply;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+      }
+    </style>
+  </head>
+
+  <body class="min-h-full flex flex-col bg-background text-foreground">
+    <!-- ================= HERO ================= -->
+    <section
+      class="relative overflow-hidden min-h-screen flex items-center pt-32 pb-24 lg:pt-40 lg:pb-32 bg-white"
+    >
+      <!-- Warm ambient depth — sits behind the grid -->
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute -right-40 -top-36 h-[38rem] w-[38rem] rounded-full bg-[#dbeafe]/60 blur-3xl"
+      ></div>
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0"
+        style="
+          background: radial-gradient(
+              ellipse 60% 45% at 18% 18%,
+              rgba(37, 99, 235, 0.12) 0%,
+              transparent 58%
+            ),
+            radial-gradient(
+              ellipse 55% 60% at 88% 90%,
+              rgba(37, 99, 235, 0.08) 0%,
+              transparent 60%
+            );
+        "
+      ></div>
+      <div aria-hidden="true" class="grain pointer-events-none absolute inset-0"></div>
+
+      <div class="relative mx-auto max-w-7xl px-6 sm:px-10">
+        <div class="grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-center">
+          <!-- Copy column -->
+          <div class="animate-fade-up">
+            <div
+              class="inline-flex items-center gap-2 rounded-full border border-[#cde0f7] bg-surface/60 backdrop-blur px-4 py-1.5 text-xs tracking-[0.18em] uppercase text-foreground-muted"
+            >
+              <span class="w-1.5 h-1.5 rounded-full bg-[#2563eb]"></span>
+              Licensed &amp; Insured · Houston, TX
+            </div>
+
+            <h1
+              class="mt-6 font-display text-[4.75rem] md:text-[clamp(4.75rem,6.5vw,6rem)] leading-[0.95] tracking-tight text-balance"
+            >
+              Reliable comfort,
+              <br />
+              <span class="italic text-[#1d4ed8]">in every season.</span>
+            </h1>
+
+            <p
+              class="mt-7 max-w-xl text-xl leading-relaxed text-foreground-muted text-balance"
+            >
+              Houston&rsquo;s trusted HVAC company for expert heating, cooling,
+              and indoor air quality
+            </p>
+
+            <p
+              class="mt-4 max-w-md text-sm leading-relaxed text-foreground-muted/90 text-balance"
+            >
+              We don&rsquo;t dabble in HVAC — heating and cooling is all we do,
+              every single day.
+            </p>
+
+            <!-- Google rating pill -->
+            <div class="mt-9">
+              <a
+                href="https://share.google/iHBs3SSjTtufCv9cv"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-3 rounded-full border border-line bg-surface/70 backdrop-blur px-4 py-2 transition-colors hover:bg-accent-soft/50"
+              >
+                <!-- Google "G" -->
+                <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
+                  <path
+                    fill="#4285F4"
+                    d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"
+                  />
+                  <path
+                    fill="#FF3D00"
+                    d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C16.318 4 9.656 8.337 6.306 14.691z"
+                  />
+                  <path
+                    fill="#4CAF50"
+                    d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"
+                  />
+                  <path
+                    fill="#1976D2"
+                    d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.231 4.166-4.087 5.571l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"
+                  />
+                </svg>
+
+                <!-- Stars -->
+                <div class="flex items-center gap-0.5" aria-hidden="true">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="#d8a948">
+                    <path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z" />
+                  </svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="#d8a948">
+                    <path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z" />
+                  </svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="#d8a948">
+                    <path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z" />
+                  </svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="#d8a948">
+                    <path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z" />
+                  </svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="#d8a948">
+                    <path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z" />
+                  </svg>
+                </div>
+
+                <span class="text-sm leading-none">
+                  <span class="font-semibold text-foreground">5.0</span>
+                  <span class="text-foreground-muted"> · 400+ reviews</span>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Image column -->
+          <div class="relative animate-fade-up lg:pl-4" style="animation-delay: 0.15s">
+            <img
+              src="public/hvac1.avif"
+              alt="HVAC technician servicing a home heating and cooling system"
+              width="776"
+              height="1163"
+              class="w-full h-auto rounded-2xl object-cover shadow-[0_30px_80px_-20px_rgba(15,15,16,0.22),0_8px_24px_-12px_rgba(15,15,16,0.12)] ring-1 ring-[#bcd4f2]/70 lg:scale-[1.5] lg:origin-left"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

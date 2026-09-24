@@ -2,8 +2,10 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import RealSection from "@/components/RealSection";
 import CustomerSlideshow from "@/components/CustomerSlideshow";
+import BrilliantSmiles from "@/components/BrilliantSmiles";
 import GoogleReviews from "@/components/GoogleReviews";
 import About from "@/components/About";
+import Treatments from "@/components/Treatments";
 import Portfolio from "@/components/Portfolio";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
@@ -23,7 +25,9 @@ export default function Home() {
         <Hero />
         <RealSection />
         <CustomerSlideshow />
+        <BrilliantSmiles />
         <About />
+        <Treatments />
         <Portfolio />
         <GoogleReviews />
         <FAQ />

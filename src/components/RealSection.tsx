@@ -67,7 +67,7 @@ export default function RealSection() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-accent-soft/30 py-24 sm:py-32">
+    <section className="relative overflow-hidden bg-background py-24 sm:py-32">
       {/* Subtle film grain for depth */}
       <div className="grain pointer-events-none absolute inset-0" />
 
