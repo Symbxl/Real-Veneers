@@ -44,3 +44,7 @@ next-env.d.ts
 
 # leads dashboard local data store (re-seeds from code)
 /data
+
+# raw camera footage (too large for GitHub)
+/public/C9200.mp4
+/public/C9200M01.XML

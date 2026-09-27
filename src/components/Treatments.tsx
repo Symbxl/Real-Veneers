@@ -3,22 +3,6 @@
 import Image from "next/image";
 import { motion, type Variants } from "motion/react";
 
-// The two-day arc, from the first appointment to the finished smile.
-const DAYS = [
-  {
-    numeral: "01",
-    label: "Day One",
-    title: "Design & prepare",
-    body: "Your smile is designed in 3D and previewed with a trial smile over your natural teeth, then your teeth are gently prepared for porcelain.",
-  },
-  {
-    numeral: "02",
-    label: "Day Two",
-    title: "Place & perfect",
-    body: "Your veneers are milled and hand-finished in our in-house lab, then placed and fine-tuned until the shape and shade are unmistakably yours.",
-  },
-];
-
 // Shared scroll-in reveal; `custom` index drives the stagger.
 const reveal: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -56,8 +40,14 @@ export default function Treatments() {
             >
               <span aria-hidden className="h-px w-12 bg-accent" />
               <span>Smile Makeover</span>
-              <span aria-hidden className="h-1 w-1 rotate-45 bg-accent" />
-              <span className="text-foreground-muted">Sugar Land, TX</span>
+              {/* Grouped so the location wraps as one unit on narrow screens */}
+              <span className="flex items-center gap-x-4 text-foreground-muted">
+                <span
+                  aria-hidden
+                  className="hidden h-1 w-1 rotate-45 bg-accent sm:block"
+                />
+                Sugar Land, TX
+              </span>
             </motion.div>
 
             {/* Headline — roman with an italic turn on the promise */}
@@ -101,50 +91,33 @@ export default function Treatments() {
               nothing leaves the building and nothing waits.
             </motion.p>
 
+            {/* Inside the lab — Dr. Trevino hand-finishing a veneer */}
             <motion.div
-              aria-hidden
               initial="hidden"
               whileInView="show"
               viewport={viewport}
               variants={reveal}
               custom={4}
-              className="mt-12 h-px max-w-xl bg-accent-deep/30"
-            />
-
-            {/* The two days, side by side */}
-            <ol className="mt-10 grid max-w-xl gap-10 sm:grid-cols-2 sm:gap-x-12">
-              {DAYS.map((d, i) => (
-                <motion.li
-                  key={d.label}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={viewport}
-                  variants={reveal}
-                  custom={5 + i}
-                  className={
-                    i === 1
-                      ? "sm:border-l sm:border-accent-deep/20 sm:pl-12"
-                      : ""
-                  }
-                >
-                  <span
-                    aria-hidden
-                    className="block font-display text-[3.25rem] italic leading-none text-accent/80"
-                  >
-                    {d.numeral}
-                  </span>
-                  <div className="mt-4 text-[11px] uppercase tracking-[0.3em] text-accent-deep">
-                    {d.label}
-                  </div>
-                  <h3 className="mt-2 font-display text-2xl leading-tight text-foreground">
-                    {d.title}
-                  </h3>
-                  <p className="mt-3 text-[15px] leading-relaxed text-foreground-muted text-pretty">
-                    {d.body}
-                  </p>
-                </motion.li>
-              ))}
-            </ol>
+              className="relative mt-12 max-w-xl overflow-hidden rounded-2xl bg-foreground ring-1 ring-line shadow-[0_40px_90px_-40px_rgba(15,15,16,0.5)] lg:mt-14 lg:rounded-[1.75rem]"
+            >
+              <video
+                src="/process.mp4"
+                poster="/lab-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="Dr. Trevino hand-finishing a porcelain veneer in the RealVeneers lab"
+                className="aspect-video h-auto w-full object-cover"
+              />
+              {/* Frosted caption, framed like a player */}
+              <span className="pointer-events-none absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-background/90 px-3.5 py-1.5 text-xs font-medium tracking-tight text-foreground shadow-[0_8px_24px_-10px_rgba(15,15,16,0.5)] ring-1 ring-foreground/10 backdrop-blur">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                Inside our in-house lab
+              </span>
+              <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 lg:rounded-[1.75rem]" />
+            </motion.div>
           </div>
         </div>
 

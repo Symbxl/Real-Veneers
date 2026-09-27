@@ -11,11 +11,14 @@ const reviews = [
   },
   {
     quote: [
-      "Dr. Trevino's entire team is an absolute gem. From the front desk staff, to the hygienists (Stana and Janet are incredible!) and of course Dr. Trevino himself - everyone is so kind, patient, and make you feel so comfortable. I've had terrible past experiences with dentists who have bad bedside manner and Dr. Trevino's care and passion truly shine through when he's speaking to you. I've never felt rushed or like just another number when I'm here. Dare I say, I look forward to coming to the dentist now. I cannot recommend Dr. Trevino and his team enough. My only complaint is that Google only allows me to give 5 stars!",
+      "I had such of a wonderful experience with Dr. Trevino for my veneers. Dr. Trevino is a perfectionist is an understatement. He gave me the symmetry that I never knew was possible!! I find myself smiles, laughs more confidently than ever before. My teeth look brighter, more balanced and completely natural!!",
+      "Honestly, I cannot praise Dr. Trevino enough. As a dentist, his skills are unmatched!! More than that, Dr. Ryan is such of a good, compassionate and genuine person. His care extends beyond the completion of the procedure. I had some minor complications post treatment, and he continued to toke care of me every step of the way! I’m beyond eternally grateful for Dr. Trevino!!",
+      "I’m so happy I chose him and would strongly recommend him to anyone for veneers and any dental needs. Dr. Trevino truly care about his work and his patients, and it shows in the final results!!",
     ],
-    name: "Shelly Rospond",
-    initial: "S",
+    name: "Caitlynn Tonnu",
+    initial: "C",
     color: "#3b6ea5",
+    photo: "/caitlynn.png",
   },
   {
     quote: [
@@ -99,13 +102,22 @@ export default function GoogleReviews() {
               </a>
 
               <figcaption className="relative mt-7 flex items-center gap-3.5 border-t border-line pt-6">
-                <span
-                  className="grid h-12 w-12 shrink-0 place-items-center rounded-full text-base font-semibold text-white shadow-[0_4px_12px_-2px_rgba(15,15,16,0.3)] ring-2 ring-white"
-                  style={{ backgroundColor: r.color }}
-                  aria-hidden
-                >
-                  {r.initial}
-                </span>
+                {"photo" in r && r.photo ? (
+                  <img
+                    src={r.photo}
+                    alt=""
+                    aria-hidden
+                    className="h-12 w-12 shrink-0 rounded-full object-cover shadow-[0_4px_12px_-2px_rgba(15,15,16,0.3)] ring-2 ring-white"
+                  />
+                ) : (
+                  <span
+                    className="grid h-12 w-12 shrink-0 place-items-center rounded-full text-base font-semibold text-white shadow-[0_4px_12px_-2px_rgba(15,15,16,0.3)] ring-2 ring-white"
+                    style={{ backgroundColor: r.color }}
+                    aria-hidden
+                  >
+                    {r.initial}
+                  </span>
+                )}
                 <div className="leading-tight">
                   <div className="text-base font-semibold text-foreground">
                     {r.name}

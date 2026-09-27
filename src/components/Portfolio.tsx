@@ -1,100 +1,26 @@
-"use client";
-
 import Image from "next/image";
-import { useState } from "react";
 import Link from "next/link";
 
-type Model = {
-  name: string;
-  before: string;
-  after: string;
-  /** Matched zoom on both layers — adds vertical slack so `afterShift` can nudge without exposing a gap. */
-  zoom?: string;
-  /** Vertical nudge on the AFTER layer only, to line its smile up with the BEFORE photo. */
-  afterShift?: string;
-};
-
-const models: Model[] = [
+const days = [
   {
-    name: "Erielle",
-    before: "/models/before1.jpg",
-    after: "/models/after1.jpg",
-    zoom: "scale-[1.06]",
+    day: "Day 1",
+    title: "Before",
+    src: "/models/before1.jpg",
+    alt: "Smile before porcelain veneers — uneven, worn natural teeth",
+  },
+  {
+    day: "Day 2",
+    title: "After",
+    src: "/models/after1.jpg",
+    alt: "The same smile two days later with natural porcelain veneers",
   },
 ];
 
-// Drag-to-reveal before/after comparison.
-function BeforeAfter({ model }: { model: Model }) {
-  const [pos, setPos] = useState(50);
-
-  return (
-    <figure>
-      <div
-        className="relative aspect-[4/5] cursor-ew-resize touch-none select-none overflow-hidden rounded-2xl bg-foreground ring-1 ring-line"
-        onPointerMove={(e) => {
-          const rect = e.currentTarget.getBoundingClientRect();
-          const x = ((e.clientX - rect.left) / rect.width) * 100;
-          setPos(Math.max(4, Math.min(96, x)));
-        }}
-      >
-        {/* BEFORE layer */}
-        <Image
-          src={model.before}
-          alt={`${model.name} before`}
-          fill
-          sizes="(min-width:768px) 768px, 100vw"
-          className={`object-cover object-top ${
-            model.zoom ?? ""
-          }`}
-        />
-        <div className="absolute left-4 top-4 rounded-full border border-background/20 bg-foreground/60 px-3 py-1.5 text-[10px] uppercase tracking-[0.3em] text-background backdrop-blur">
-          Before
-        </div>
-
-        {/* AFTER layer (clipped from the left) */}
-        <div
-          className="absolute inset-0"
-          style={{ clipPath: `inset(0 0 0 ${pos}%)` }}
-        >
-          <Image
-            src={model.after}
-            alt={`${model.name} after`}
-            fill
-            sizes="(min-width:768px) 768px, 100vw"
-            className={`object-cover object-top ${
-              model.zoom ?? ""
-            } ${model.afterShift ?? ""}`}
-          />
-          <div className="absolute right-4 top-4 rounded-full border border-accent/40 bg-background/90 px-3 py-1.5 text-[10px] uppercase tracking-[0.3em] text-foreground backdrop-blur">
-            After
-          </div>
-        </div>
-
-        {/* Slider handle */}
-        <div
-          className="pointer-events-none absolute bottom-0 top-0 w-px bg-background shadow-[0_0_20px_rgba(0,0,0,0.4)]"
-          style={{ left: `${pos}%` }}
-        >
-          <div className="absolute top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 border-accent bg-background text-foreground shadow-xl">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="15 18 9 12 15 6" />
-              <polyline points="9 6 15 12 9 18" transform="translate(6 0)" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </figure>
-  );
-}
+const timeline = [
+  { when: "Day 1", what: "Consult, 3D scan & smile design" },
+  { when: "Overnight", what: "Milled & hand-finished in our lab" },
+  { when: "Day 2", what: "Veneers bonded — you leave smiling" },
+];
 
 export default function Portfolio() {
   return (
@@ -105,14 +31,49 @@ export default function Portfolio() {
             See the <span className="italic text-accent">transformation.</span>
           </h2>
           <p className="max-w-md text-foreground-muted">
-            Drag the slider on each portrait to reveal the before and after.
+            One smile, two days. Designed, milled, and placed under one roof —
+            no weeks of waiting on an outside lab.
           </p>
         </div>
 
-        <div className="mx-auto grid max-w-3xl gap-y-14">
-          {models.map((m) => (
-            <BeforeAfter key={m.name} model={m} />
-          ))}
+        <div className="mx-auto max-w-5xl">
+          <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
+            {days.map((d) => (
+              <figure key={d.day}>
+                <div className="relative aspect-[3/2] overflow-hidden rounded-2xl bg-foreground ring-1 ring-line">
+                  <Image
+                    src={d.src}
+                    alt={d.alt}
+                    fill
+                    sizes="(min-width:1024px) 500px, (min-width:640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-4 flex items-baseline justify-between border-b border-line pb-3">
+                  <span className="font-display text-2xl italic">{d.title}</span>
+                  <span className="text-[10px] uppercase tracking-[0.3em] text-accent-deep">
+                    {d.day}
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+
+          <ol className="mt-12 grid gap-8 sm:grid-cols-3 sm:gap-6">
+            {timeline.map((t, i) => (
+              <li key={t.when} className="flex gap-4 sm:flex-col sm:gap-3">
+                <span className="font-display text-3xl leading-none text-accent">
+                  0{i + 1}
+                </span>
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-foreground-muted">
+                    {t.when}
+                  </p>
+                  <p className="mt-1.5 text-foreground">{t.what}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
 
         <div className="mt-16 flex flex-col items-center text-center lg:mt-20">
